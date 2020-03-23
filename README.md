@@ -16,10 +16,10 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Buka alamat website Anda, klik tombol "Install Now"
 - Ikuti petunjuk Instalasi otomatis yang sudah saya sediakan
 ************
-# PENTING!
-username: admin
-password: admin
-(atau bisa Anda ubah sendiri dari database phpMyAdmin atau yang lainnya)
+# Penting!
+- username: admin
+- password: admin
+(atau bisa Anda ubah sendiri dari database phpMyAdmin atau yang lainnya :v)
 ************
 # Fitur
 - Bisa menambah, menghapus, mengubah koleksi anime
