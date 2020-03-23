@@ -39,5 +39,9 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 # Contributing
 - Belum membuka ruang untuk kontribusi
 ************
+# Rencana Mendatang
+- Membuat dokumentasi untuk mempermudah pengguna
+- Membuat video tutorial di youtube, dari instalasi sampai penggunaan
+************
 # Sumber
 -  Info <https://github.com/widibaka/Koreksubs-Makina>
