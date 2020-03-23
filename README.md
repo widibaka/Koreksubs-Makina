@@ -28,6 +28,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Bisa menambah, menghapus, mengubah koleksi anime (sudah pasti dong)
 - Menggunakan Kitsu API
 - Mengatasi laporan link rusak dengan cepat dan mudah
+- Notifikasi user melalui e-mail
 - Banyak lagi
 # Dibangun Menggunakan
 * [CodeIgniter 3.1](http://codeigniter.com/) - Web Framework yang digunakan
@@ -42,6 +43,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 # Rencana Mendatang
 - Membuat dokumentasi untuk mempermudah pengguna
 - Membuat video tutorial di youtube, dari instalasi sampai penggunaan
+- Notifikasi lewat e-mail harus diperbaiki
 ************
 # Sumber
 -  Info <https://github.com/widibaka/Koreksubs-Makina>
