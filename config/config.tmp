@@ -1,0 +1,16 @@
+<?php 
+$config['hostname'] = '%%DB_HOST%%';
+$config['username'] = '%%DB_USER%%';
+$config['password'] = '%%DB_PASS%%';
+$config['database'] = '%%DB_NAME%%';
+
+
+
+$config['dbdriver'] = 'mysqli';
+$config['dbprefix'] = '';
+$config['pconnect'] = FALSE;
+$config['db_debug'] = TRUE;
+$config['cache_on'] = FALSE;
+$config['cachedir'] = '';
+$config['char_set'] = 'utf8';
+$config['dbcollat'] = 'utf8_general_ci';

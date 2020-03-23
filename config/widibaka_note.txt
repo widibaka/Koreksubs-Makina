@@ -1,0 +1,2 @@
+This folder will contain 'config.php' file to run your own database configuration
+Feel free to modify it.

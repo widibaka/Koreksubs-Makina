@@ -1,0 +1,335 @@
+
+/* =========================Untuk tampilan tile======================= */
+.tulisan_kanan p {
+    font-size: 12px;
+    line-height: 14px;
+}
+.tulisan_kanan h2 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.wadah_konten {
+    position: relative;
+    width: 300px;
+    height: auto;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0);
+    background-color: black;
+    box-shadow: 0px 0px 1px rgb(124, 124, 124);
+    overflow: visible;
+    float: left;
+}
+.progress_bar {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    transition: height 0.15s ease-out;
+    -moz-transition: height 0.15s ease-out;
+    -webkit-transition: height 0.15s ease-out;
+    -o-transition: height 0.15s ease-out;
+}
+.rating{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 13px;
+    padding: 1px 9px;
+    border-radius: 0 0 5px 0;
+    display: visible;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000000;
+    opacity: 0.8;
+    transition: left 0.25s ease-in, opacity 0.15s linear;
+    -moz-transition: left 0.25s ease-in, opacity 0.15s linear;
+    -webkit-transition: left 0.25s ease-in, opacity 0.15s linear;
+    -o-transition: left 0.25s ease-in, opacity 0.15s linear;
+}
+.episode_tergarap{
+    position: absolute;
+    bottom: 0px;
+    height: 21px;
+    font-size: 12px;
+    overflow: hidden; 
+    width:100%; 
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 0;
+    text-shadow: 0px 0px 3px #000;
+}
+.gambar {
+    position: relative;
+    float: left;
+    width: 150px;
+    height: 212px;
+    background-color: rgba(0, 0, 0);/*didobel ben marem*/
+    background-color: black; /*didobel ben marem*/
+    background-size: 150px 212px;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -moz-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -webkit-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -o-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+}
+
+.overlay {
+    position: absolute;
+    top: 0px;
+    width: 150px;
+    height: 212px;
+    opacity: 0;
+    transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -webkit-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    float: left;
+}
+
+.overlay_tulisan {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    right: 20%;
+    transition: opacity 0.15s linear, left 0.2s ease-out, background-color 0.2s ease-in, transform 0.3s ease;
+    -moz-transition: opacity 0.15s linear, left 0.2s ease-out, background-color 0.2s ease-in, transform 0.3s ease;
+    -webkit-transition: opacity 0.15s linear, left 0.2s ease-out, background-color 0.2s ease-in, transform 0.3s ease;
+    -o-transition: opacity 0.15s linear, left 0.2s ease-out, background-color 0.2s ease-in, transform 0.3s ease;
+    transform: translateY(-50%);
+    line-height: 30px;
+    float: left;
+}
+
+.overlay_tombol_kiri {
+    position: relative;
+    margin: auto;
+    padding: 3px;
+    border: solid 1px #fff;
+    opacity: 0;
+    width: 130px;
+    transition: width 0.15s linear;
+}
+
+.tombol_kiri-bg-biru:hover {
+    background-color: rgba(51, 102, 204, 0.900);
+    width: 135px;
+}
+
+.tulisan_kanan {
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 212px;
+    color: #666;
+    float: right;
+    background-color: #fff;
+}
+
+.overlay_tulisan a {
+    color: #fff;
+}
+.fa_ukuran_kecil {
+    font-size: 13px;
+}
+.overlay_tombol_kiri:hover {
+    width: 135px;
+    background: rgba(255, 255, 255, 0.300);
+}
+.wadah_konten:hover .gambar{
+    background-size: 159px 225px;
+    opacity: 0.5;
+}
+.wadah_konten:hover .overlay{
+    opacity: 1;
+}
+.wadah_konten:hover .overlay_tulisan{
+    opacity: 1;
+    left: 7%;
+}
+.wadah_konten:hover .overlay_tombol_kiri{
+    opacity: 1;
+}
+.wadah_konten:hover .rating{
+    left: -1%;
+    opacity: 0;
+}
+.wadah_konten:hover .episode_tergarap{
+    opacity: 1;
+}
+
+.wadah_konten:hover .progress_bar{
+    height: 22px;
+    opacity: 0.9;
+}
+
+/* ============ Wadah untuk konten list =============== */
+
+.tulisan_kanan_in_list p {
+    font-size: 12px;
+    line-height: 14px;
+}
+.tulisan_kanan_in_list h2 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.wadah_konten_in_list {
+    margin-bottom: 5px;
+    position: relative;
+    width: 100%;
+    height: 71px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px rgb(124, 124, 124);
+    overflow: visible;
+    float: left;
+}
+.progress_bar_in_list {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 2px;
+    transition: height 0.15s ease-out;
+    -moz-transition: height 0.15s ease-out;
+    -webkit-transition: height 0.15s ease-out;
+    -o-transition: height 0.15s ease-out;
+    opacity: 0.7;
+}
+.rating_in_list{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 13px;
+    padding: 1px 9px;
+    border-radius: 5px 0 0 5px;
+    display: visible;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px #000000;
+    opacity: 0.8;
+    transition: left 0.25s ease-in, opacity 0.15s linear;
+    -moz-transition: bottom 0.25s ease-in, opacity 0.15s linear;
+    -webkit-transition: bottom 0.25s ease-in, opacity 0.15s linear;
+    -o-transition: bottom 0.25s ease-in, opacity 0.15s linear;
+}
+.episode_tergarap_in_list{
+    position: absolute;
+    bottom: -3px;
+    height: 22px;
+    font-size: 12px;
+    overflow: hidden; 
+    width:100%; 
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    opacity: 0;
+    text-shadow: 0px 0px 3px #000;
+}
+.gambar_in_list {
+    position: absolute;
+    left: 0px;
+    width: 50px;
+    height: 71px;
+    background-size: 50px 71px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -moz-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -webkit-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+    -o-transition: background-size 0.15s ease-in, opacity 0.2s linear;
+}
+
+.tulisan_kanan_in_list {
+    position: static;
+    float: left;
+    height: 71px;
+    color: #666;
+    background-color: #fff;
+}
+
+.tulisan_kanan_in_list h2 {
+    margin-left: 60px;
+}
+
+.overlay_tulisan_in_list a {
+    color: #fff;
+}
+.fa_ukuran_kecil_in_list {
+    font-size: 13px;
+}
+.wadah_konten_in_list:hover .overlay_in_list{
+    opacity: 1;
+}
+.wadah_konten_in_list:hover .rating_in_list{
+    bottom: 25%;
+}
+.wadah_konten_in_list:hover .episode_tergarap_in_list{
+    opacity: 1;
+}
+
+.wadah_konten_in_list:hover .progress_bar_in_list{
+    height: 20px;
+}
+
+
+/*Animasi link rusak */
+
+.link_rusak_semua {
+  // box-shadow: 0 0 20px 10px rgba(230, 30, 10, 0.6);
+  animation: burnA 1000ms ease-out infinite;
+  -moz-animation: burnA 1000ms ease-out infinite;
+  -webkit-animation: burnA 1000ms ease-out infinite;
+  -o-animation: burnA 1000ms ease-out infinite;
+}
+
+@keyframes burnA {
+  0% {
+    box-shadow:
+      0 0 5px 0 rgba(200, 0, 10, 1),
+      0 0 5px 0 rgba(230, 30, 10, 0.8),
+      0 0 5px 0 rgba(230, 230, 10, 0.6);
+  }
+  
+  100% {
+    box-shadow:
+      0 0 10px 10px rgba(255, 130, 10, 0),
+      0 0 10px 5px rgba(230, 30, 10, 0),
+      0 0 10px 0 rgba(255, 255, 10, 0);
+  }
+}
+
+.link_rusak_sebagian {
+  // box-shadow: 0 0 20px 10px rgba(227, 220, 15, 0.6);
+  animation: burnB 1000ms ease-out infinite;
+  -moz-animation: burnB 1000ms ease-out infinite;
+  -webkit-animation: burnB 1000ms ease-out infinite;
+  -o-animation: burnB 1000ms ease-out infinite;
+}
+
+@keyframes burnB {
+  0% {
+    box-shadow:
+      0 0 5px 0 rgba(227, 220, 15, 1),
+      0 0 5px 0 rgba(227, 220, 15, 0.8),
+      0 0 5px 0 rgba(227, 220, 15, 0.6);
+  }
+  
+  100% {
+    box-shadow:
+      0 0 10px 10px rgba(227, 220, 15, 0),
+      0 0 10px 5px rgba(227, 220, 15, 0),
+      0 0 10px 0 rgba(227, 220, 15, 0);
+  }
+}
+
+/*Biar pindah ke tengah saat layarnya kecil*/
+@media (max-width: 645px) {
+    .wadah_konten {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
