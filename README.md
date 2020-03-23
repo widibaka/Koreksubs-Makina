@@ -34,7 +34,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 * [AdminLTE3 Template](https://adminlte.io/themes/AdminLTE) - Web Framework yang digunakan
 ************
 # Disclaimer
-- Saya membuat ini sebagai bahan edukasi loh
+- Saya membuat ini sebagai bahan edukasi loh ya
 ************
 # Contributing
 - Belum membuka ruang untuk kontribusi
