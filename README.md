@@ -21,7 +21,8 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 # Penting!
 - username: admin
 - password: admin
-- (atau diubah dari phpMyAdmin atau yang lainnya, gitu juga bisa sih :v)
+- (atau diubah dari phpMyAdmin atau yang lainnya)
+- (akun ini tidak berlaku di Demo)
 ************
 # Fitur
 - Instalasi mudah dan bersih, tanpa perlu ngoding
