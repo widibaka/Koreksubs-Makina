@@ -29,6 +29,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Menggunakan Kitsu API
 - Mengatasi laporan link rusak dengan cepat dan mudah
 - Notifikasi user melalui e-mail
+- User level
 - Banyak lagi
 # Dibangun Menggunakan
 * [CodeIgniter 3.1](http://codeigniter.com/) - Web Framework yang digunakan
@@ -43,7 +44,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 # Rencana Mendatang
 - Membuat dokumentasi untuk mempermudah pengguna
 - Membuat video tutorial di youtube, dari instalasi sampai penggunaan
-- Notifikasi lewat e-mail harus diperbaiki
+- Notifikasi lewat e-mail masih ada bug, tapi belum diperbaiki
 ************
 # Sumber
 -  Info <https://github.com/widibaka/Koreksubs-Makina>
