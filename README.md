@@ -34,7 +34,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Banyak lagi
 # Dibangun Menggunakan
 * [CodeIgniter 3.1](http://codeigniter.com/) - Web Framework yang digunakan
-* [AdminLTE3 Template](https://adminlte.io/themes/AdminLTE) - Web Framework yang digunakan
+* [AdminLTE3 Template](https://adminlte.io/themes/AdminLTE) - Template tampilan yang digunakan
 ************
 # Disclaimer
 - Saya membuat ini sebagai bahan edukasi loh ya
