@@ -41,8 +41,8 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 # Disclaimer
 - Saya membuat ini sebagai bahan edukasi loh ya
 ************
-# Contributing
-- Belum membuka ruang untuk kontribusi
+# Contributing & Contact
+- Silakan hubungi WA 6281226203761 untuk ngobrol dgn saya :)
 ************
 # Rencana Mendatang
 - Membuat dokumentasi untuk mempermudah pengguna
