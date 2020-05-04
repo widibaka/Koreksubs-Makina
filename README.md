@@ -2,6 +2,7 @@
 Koreksubs Makina - Anime Management System. 
 Aplikasi Web CMS untuk fansub dan fanshare anime.
 * [DEMO](https://koreksubs.online/)
+(Pengembangan mungkin akan ngadat sampai September 2020. Karena saya masih banyak kerjaan dan urusan kuliah)
 ************
 # Apa itu Koreksubs Makina?
 Koreksubs Makina adalah sebuah anime management system berbasis web yang dibuat memakai Framework pemrograman PHP bernama CodeIgniter 3.1.
@@ -15,6 +16,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Pertama-tama, buatlah sebuah database kosong memakai CPanel
 - Upload Koreksubs Makina ke server Anda
 - Buka alamat website Anda, klik tombol "Install Now"
+- (Kalau tidak muncul, buka alamat "http://SITUSANDA/installation")
 - Ikuti petunjuk Instalasi yang sudah saya sediakan, dan isi field yang disediakan
 - Tunggu sampai selesai
 ************
