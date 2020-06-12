@@ -38,7 +38,8 @@ class User extends CI_Controller
  		$g_client->setClientId("91581392252-8967kib5tsjpks14vsd0scoqno5v0477.apps.googleusercontent.com");
  		$g_client->setClientSecret("HrC_h2qr6BsuLFwYOGXkeXqH");
  		$g_client->setRedirectUri( base_url('user/login/') );
- 		$g_client->setScopes("email");
+ 		$g_client->addScope("email");
+ 		$g_client->addScope("profile");
 
  		//Step 2 : Create the url
  		$auth_url = $g_client->createAuthUrl();
@@ -76,8 +77,7 @@ class User extends CI_Controller
 
  		if(isset($pay_load)){
 
- 			$exploded = explode( '@', $pay_load['email'] );
- 		    $username = $exploded[0];
+ 		    $username = $pay_load['name'];
  		    $email = $pay_load['email'];
 
  		    $login = $this->User_model->loginWithGoogle($email);

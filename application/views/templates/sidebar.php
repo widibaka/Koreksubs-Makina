@@ -124,7 +124,7 @@
             }
           ?>
           <?php if ( $fansub_preferences['status_custom_menu'] != "0" ): ?>            
-            <li class="nav-item has-treeview" id="custom_menu">
+            <li class="nav-item has-treeview">
               <a href="<?= base_url(); ?>client/settings.asp" class="nav-link sidebar_null">
                 <i class="fa nav-icon fa-circle-notch"></i>
                 <p>
