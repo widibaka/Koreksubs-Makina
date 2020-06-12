@@ -665,7 +665,7 @@ class Client extends CI_Controller {
 		}
 		$this->load->view('tools/upload_form', array('error' => $error ));
 
-		$config['upload_path']          = './assets/img/tmp/';
+		$config['upload_path']          = 'assets/img/tmp/';
 		$config['allowed_types']        = 'jpg|jpeg|png';
 		$config['max_size']             = 2000;
 		$config['max_width']            = 5000;
@@ -677,6 +677,8 @@ class Client extends CI_Controller {
 		{
 		        $error = $this->upload->display_errors() ;
 		        $this->session->set_flashdata('error',$error);
+		        var_dump($error);
+		        die();
 		}
 		else
 		{

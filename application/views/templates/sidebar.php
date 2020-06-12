@@ -124,8 +124,8 @@
             }
           ?>
           <?php if ( $fansub_preferences['status_custom_menu'] != "0" ): ?>            
-            <li class="nav-item has-treeview" id="li_settings">
-              <a href="<?= base_url(); ?>client/settings.asp" class="nav-link sidebar_null" id="settings">
+            <li class="nav-item has-treeview" id="custom_menu">
+              <a href="<?= base_url(); ?>client/settings.asp" class="nav-link sidebar_null">
                 <i class="fa nav-icon fa-circle-notch"></i>
                 <p>
                   <?= $fansub_preferences['custom_menu_name'] ?>
@@ -139,13 +139,13 @@
                 ?>
                 <?php if ($ganjil == 1) : ?>
                 	<li class="nav-item">
-                	  <a href="#" class="nav-link sidebar_null" id="profile">
+                	  <a href="#" class="nav-link sidebar_null">
                 	    <i class="far fa-circle nav-icon"></i>
                 	    <p class="text-danger">(Terjadi Kesalahan)</p>
                 	  </a>
                 	</li>
                 	<li class="nav-item">
-                	  <a href="#" class="nav-link sidebar_null" id="profile">
+                	  <a href="#" class="nav-link sidebar_null">
                 	    <i class="far fa-circle nav-icon"></i>
                 	    <p class="text-danger">(Cek Lagi Custom Menu)</p>
                 	  </a>
@@ -153,7 +153,7 @@
                 <?php else : ?>
                 	<?php for ($i=0; $i < $total ; $i+=2): ?>
                 	  <li class="nav-item">
-                	    <a href="<?php echo $custom_menu[$i+1] ?>" class="nav-link sidebar_null" id="profile">
+                	    <a href="<?php echo $custom_menu[$i+1] ?>" class="nav-link sidebar_null">
                 	      <i class="far fa-circle nav-icon"></i>
                 	      <p><?php echo $custom_menu_fix[$i] ?></p>
                 	    </a>
