@@ -50,7 +50,7 @@ if ($page == 'message') {
       <?= $fansub_preferences['fansub_name'] ?>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <a href="https://github.com/widibaka/"><b>App Ver.</b> 8.1.1</a>
+      <a href="https://github.com/widibaka/"><b>App Ver.</b> 8.2.6</a>
     </div>
   </footer>
 </div>
