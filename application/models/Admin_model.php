@@ -193,7 +193,10 @@ class Admin_model extends CI_Model
 			        'trailer' => $this->input->post('trailer', true),
 			        'ket' => $this->input->post('ket', true),
 			        'author' => $this->input->post('author', true),
+			        'download_count' => 0,
+			        'view_count' => 0,
 			        'kitsu_info' => $this->input->post('kitsu_info', true),
+			        'progress' => 0,
 			        'timestamp' => $waktu_saat_ini,
 			);
 			$this->db->insert('anime', $data);

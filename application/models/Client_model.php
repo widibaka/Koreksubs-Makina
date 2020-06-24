@@ -325,7 +325,7 @@ class Client_model extends CI_Model
 
 
 
-	//Fungsi utk bikin waktu mundur buat chat dan lain-lain
+	//Fungsi utk bikin waktu format database jadi lokal indo
 	public function convertTimeFormat( $tgl )
 	{
 		$tgl = explode(' ', $tgl);

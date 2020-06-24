@@ -22,6 +22,8 @@ class User_model extends CI_Model
 			        'email' => $this->input->post('email'),
 			        'password' => $this->input->post('password'),
 			        'skills' => $this->input->post('skills'),
+			        'message_read' => 0,
+			        'admin' => 0,
 			        'kota_asal' => $this->input->post('kota_asal'),
 			        'subscription' => 1,
 
