@@ -6,8 +6,8 @@ class User_model extends CI_Model
 		if ( !empty($this->input->post('username')) AND !empty($this->input->post('email')) AND !empty($this->input->post('password')) AND !empty($this->input->post('password_verify')) ) {
 
 			// Send an email
-			$email_address_from = 'widibaka_noreply@koreksubs.online';
-			$sender_name = 'Widi Baka';
+			$email_address_from = 'admin_noreply@koreksubs.online';
+			$sender_name = 'admin';
 			$email_address_to = $this->input->post('email');
 			$subject = 'Terima kasih dari koreksubs';
 			$message = 'Terima kasih sudah melakukan registrasi Akun koreksubs!';
@@ -40,11 +40,11 @@ class User_model extends CI_Model
 			$this->db->insert('users',$data);
 
 			// Beri pesan selamat datang secara otomatis untuk anggota baru
-			$pesan = '<p>Halo '.$this->input->post('username').'! Aku widibaka!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>';
+			$pesan = '<p>Halo '.$this->input->post('username').'! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>';
 
 			$data1 = array(
 					// Di bawah ini bisa diganti jadi nama orang lain, kalau ada yang pakai software ini selain gue.
-			        'from' => 'widibaka',
+			        'from' => 'admin',
 			        'to' => $this->input->post('username'),
 			        'text' => $pesan,
 					'timestamp' => $waktu_saat_ini,
@@ -77,11 +77,11 @@ class User_model extends CI_Model
 		$this->db->insert('users',$data);
 
 		// Beri pesan selamat datang secara otomatis untuk anggota baru
-		$pesan = '<p>Halo '.$username.'! Aku widibaka!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>';
+		$pesan = '<p>Halo '.$username.'! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>';
 
 		$data1 = array(
 				// Di bawah ini bisa diganti jadi nama orang lain, kalau ada yang pakai software ini selain gue.
-		        'from' => 'widibaka',
+		        'from' => 'admin',
 		        'to' => $username,
 		        'text' => $pesan,
 		        'timestamp' => $waktu_saat_ini,
