@@ -9,6 +9,7 @@ Koreksubs Makina adalah sebuah anime management system berbasis web yang dibuat 
 Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai hobi dengan membuat website fansub anime tanpa harus risau tentang cara membangun sistem website untuk fansub.
 ************
 # Requirements
+- Server Apache
 - Minimal PHP ver.7.2 (Belum dicoba di ver. 5, jadi silakan kalau mau coba)
 - Database MySQL
 ************
