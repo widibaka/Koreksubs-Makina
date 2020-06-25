@@ -12,7 +12,6 @@ CREATE TABLE `anime` (
   `season` varchar(21) NOT NULL,
   `year` varchar(50) NOT NULL,
   `sinopsis` mediumtext NOT NULL,
-  `review` text NOT NULL,
   `credits` tinytext NOT NULL,
   `rating` varchar(25) NOT NULL,
   `trailer` varchar(255) NOT NULL,
