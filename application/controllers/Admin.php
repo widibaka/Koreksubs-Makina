@@ -221,7 +221,8 @@ class Admin extends CI_Controller {
 			$kitsu_search = str_replace('/', '%20', $kitsu_search); //replacing slash
 			$kitsu_search = str_replace('!', '%20', $kitsu_search); //replacing exclamation
 			$kitsu_search = str_replace('?', '%20', $kitsu_search); //replacing question mark
-			$kitsu_search = str_replace("'", '%20', $kitsu_search); //replacing question mark
+			$kitsu_search = str_replace("'", '%20', $kitsu_search); //replacing quote mark
+			$kitsu_search = str_replace("&", '%20', $kitsu_search); //replacing & symbol
 			$kitsu_search = htmlspecialchars($kitsu_search);
 			$data['kitsu_anime'] = $this->Admin_model->kitsuAPI_search($kitsu_search, 5);
 		}
