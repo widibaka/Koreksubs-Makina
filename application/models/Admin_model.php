@@ -12,7 +12,7 @@ class Admin_model extends CI_Model
 
 	public function kitsuAPI_single($anime_name)
 	{
-		$kitsu_anime = file_get_contents('https://kitsu.io/api/edge/anime?filter[text]='. $anime_name .'&page[limit]=1');
+		$kitsu_anime = file_get_contents('http://kitsu.io/api/edge/anime?filter[text]='. $anime_name .'&page[limit]=1');
 		if ( empty($kitsu_anime) ) {
 			echo "<script>alert('ERROR API! Tampaknya ada yang salah dengan Kitsu API.')</script>";
 			exit();

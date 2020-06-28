@@ -78,7 +78,7 @@
             <a href="<?= base_url(); ?>client/collection.asp" class="nav-link sidebar_null" id="collection">
               <i class="nav-icon fa fa-list"></i>
               <p>
-                Anime List
+                List A-Z
               </p>
             </a>
           </li>
@@ -221,7 +221,7 @@
             <a href="<?= base_url('admin/add_new_anime_series.asp'); ?>" class="nav-link sidebar_null" id="add_new_anime_series">
               <i class="nav-icon fa fa-plus"></i>
               <p>
-                Add New Anime Series
+                Add New Series
               </p>
             </a>
           </li>
@@ -229,7 +229,7 @@
             <a href="<?= base_url('admin/series_manager.asp'); ?>" class="nav-link sidebar_null" id="series_manager">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
-                Anime manager
+                Series Manager
               </p>
             </a>
           </li>

@@ -13,6 +13,11 @@
                       <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                     </div>
                   </div>
+                  
+                  <div class="input-group input-group-md mt-2" style="width: 80%;">
+                    Atau <a class="ml-2 btn btn-sm bg-maroon" href="<?= base_url('admin/add_new_anime_series_step2/===custom_rilis===') ?>"> Buat CUSTOM Series!</a>
+                  </div>
+
                 </div>
                </form>
               </div>

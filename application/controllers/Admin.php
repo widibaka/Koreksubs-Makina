@@ -105,30 +105,30 @@ class Admin extends CI_Controller {
 		$data['page'] = "series_manager_detail";
 		$data['page_title'] = 'Sedang mengedit "' . $data['anime']['title'].'"';
 
-		//Data from kitsuAPI is called to get 'reset default' work out
-		$kitsu_search = $data['anime']['title'];
+		// //Data from kitsuAPI is called to get 'reset default' work out
+		// $kitsu_search = $data['anime']['title'];
 
-		// Karakter yang ngerusak link diganti, difilter
-		$explode = explode("(", $kitsu_search); // dipecah lalu,
-		$kitsu_search = $explode[0];// diambil bagian judul jepang doang
+		// // Karakter yang ngerusak link diganti, difilter
+		// $explode = explode("(", $kitsu_search); // dipecah lalu,
+		// $kitsu_search = $explode[0];// diambil bagian judul jepang doang
 
-		$kitsu_search = str_replace(' ', '%20', $kitsu_search); //replacing space characters
-		$kitsu_search = str_replace(':', '%20', $kitsu_search); //replacing idont know characters
-		$kitsu_search = str_replace('(', '%20', $kitsu_search); //replacing bracket characters
-		$kitsu_search = str_replace(')', '%20', $kitsu_search); //replacing bracket characters
-		$kitsu_search = str_replace('/', '%20', $kitsu_search); //replacing slash
-		$kitsu_search = str_replace('!', '%20', $kitsu_search); //replacing exclamation
-		$kitsu_search = str_replace('?', '%20', $kitsu_search); //replacing question mark
-		$kitsu_search = str_replace("'", '%20', $kitsu_search); //replacing single quote mark
-		$kitsu_search = htmlspecialchars($kitsu_search);
+		// $kitsu_search = str_replace(' ', '%20', $kitsu_search); //replacing space characters
+		// $kitsu_search = str_replace(':', '%20', $kitsu_search); //replacing idont know characters
+		// $kitsu_search = str_replace('(', '%20', $kitsu_search); //replacing bracket characters
+		// $kitsu_search = str_replace(')', '%20', $kitsu_search); //replacing bracket characters
+		// $kitsu_search = str_replace('/', '%20', $kitsu_search); //replacing slash
+		// $kitsu_search = str_replace('!', '%20', $kitsu_search); //replacing exclamation
+		// $kitsu_search = str_replace('?', '%20', $kitsu_search); //replacing question mark
+		// $kitsu_search = str_replace("'", '%20', $kitsu_search); //replacing single quote mark
+		// $kitsu_search = htmlspecialchars($kitsu_search);
 
-		$data2 = $this->Admin_model->kitsuAPI_single($kitsu_search);
+		// $data2 = $this->Admin_model->kitsuAPI_single($kitsu_search);
 		$this->load->view('templates/header', $data);
 		$this->load->view('additions/after_header/series_manager_detail');
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('templates/sidebar', $data);
 		// WIDIBAKA! DI sini meragukan! Aku khawatir, tolong check lagi data yang dikirim ke bawah ini.
-		$this->load->view('tools/admin/series_manager_detail',$data2); // <-- 
+		$this->load->view('tools/admin/series_manager_detail',$data); // <-- 
 		// Data yg pertama gak dikirim tapi gak error lho. Kok bisa? Harusnya kan 2 data yg dikirim...
 		$this->load->view('templates/footer', $data);
 		$this->load->view('additions/after_footer/series_manager_detail');
@@ -232,7 +232,7 @@ class Admin extends CI_Controller {
  		
  
 		$data['page'] = "add_new_anime_series";
-		$data['page_title'] = 'Add New Anime Series';
+		$data['page_title'] = 'Add New Series';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('additions/after_header/series_manager_detail');
@@ -244,9 +244,24 @@ class Admin extends CI_Controller {
 	
 	public function add_new_anime_series_step2($kitsu_search)
 	{
-		if (!empty($kitsu_search)) {
+		if (!empty($kitsu_search) AND $kitsu_search !== '===custom_rilis===') {
 			$data = $this->Admin_model->kitsuAPI_single($kitsu_search);
 		}
+		else {
+			// kalau custom rilis
+			$kitsu_anime = file_get_contents( base_url('assets/anime_kosong.json') ); // ambil data anime kosong
+			$kitsu_anime = json_decode($kitsu_anime, true);
+			$kitsu_anime = $kitsu_anime["data"][0];
+			$data['kitsu_anime'] = $kitsu_anime;
+			$data['kitsu_categories'] = "";
+			$data['poster_tiny'] = "";
+			$data['poster_medium'] = "";
+			$data['season'] = "";
+			$data['year'] = "";
+			$data['kitsu_info'] = "";
+		}
+		// var_dump($data);
+		// die();
 
 		$this->Admin_model->addAnimeSeries();// Data hasil submit akan ditampung di sini
 
@@ -260,7 +275,7 @@ class Admin extends CI_Controller {
  		
  
 		$data['page'] = "add_new_anime_series_step2";
-		$data['page_title'] = 'Add New Anime Series Step 2';
+		$data['page_title'] = 'Add New Series Step 2';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('additions/after_header/add_new_anime_series_step2');

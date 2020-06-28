@@ -32,7 +32,7 @@
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Detail Anime</h3>
+          <h3 class="card-title">Detail</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -77,7 +77,7 @@
                         <?= $anime['sinopsis']; ?>
                       </p>
                     </div>
-                  <h4>Bagaimana pendapatmu tentang anime ini?</h4>
+                  <h4>Bagaimana pendapatmu tentang konten ini?</h4>
                           <?php if (empty($this->session->userdata("user_id"))): ?>
                             <div class="user-block mb-2 mt-2">
                               <div class="img-circle img-bordered-sm " style="background: url('<?= base_url(); ?>assets/img/no_photo.jpg') center; width: 40px; height: 40px; background-size: cover; margin-bottom: -40px">

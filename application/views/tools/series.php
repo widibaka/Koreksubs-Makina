@@ -24,7 +24,7 @@
 <?php if (empty($anime)) :?>
 <div class="row">
   <div class="col-12 text-center">
-      <i><p class="text-muted"><i class="fa fa-times-circle"></i> 404 Data tidak ditemukan.</p></i>
+      <i><p class="text-muted"><i class="fa fa-times-circle"></i> Data tidak ditemukan.</p></i>
   </div>
 </div>
 
@@ -90,9 +90,12 @@
         break;
     }
 ?>
-              <div class="rating bg-<?= $rating_color; ?>">
-                <i class="fa fa-star fa-fw text-white"></i><span class="shadow text-white"> <?= $anime[$key]['rating']; ?>%</span>
-              </div>
+              <?php if ( !empty($anime[$key]['rating']) ): ?>
+                <div class="rating bg-<?= $rating_color; ?>">
+                  <i class="fa fa-star fa-fw text-white"></i><span class="shadow text-white"> <?= $anime[$key]['rating']; ?>%</span>
+                </div>
+              <?php endif ?>
+              
             <!-- Tulisan di bagian kanan -->
             <div class="tulisan_kanan">
                <div class="tab-content tab-space">
@@ -149,12 +152,14 @@
             }
                 
              ?>
-            <div class="progress progress-line-success progress_bar mb-0" id="progressZ">
-              <div class="progress-bar progress-bar-success bg-<?= $theme['accent_color'] ?>" role="progressbar" style="width: <?= $pembagian; ?>%;" >
+            <?php if ( !empty($anime[$key]['full_episode']) ): ?>
+              <div class="progress progress-line-success progress_bar mb-0" id="progressZ">
+                <div class="progress-bar progress-bar-success bg-<?= $theme['accent_color'] ?>" role="progressbar" style="width: <?= $pembagian; ?>%;" >
+                </div>
+                <span class="episode_tergarap"><?= $anime[$key]['progress']; ?> / <?= $full_episode; ?> Episode
+                </span>
               </div>
-              <span class="episode_tergarap"><?= $anime[$key]['progress']; ?> / <?= $full_episode; ?> Episode
-              </span>
-            </div>
+            <?php endif ?>
           </div>
          
         <?php endforeach; ?>

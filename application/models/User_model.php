@@ -25,7 +25,7 @@ class User_model extends CI_Model
 			        'message_read' => 0,
 			        'admin' => 0,
 			        'kota_asal' => $this->input->post('kota_asal'),
-			        'subscription' => 1,
+			        'subscription' => 0,
 
 					// using default color and theme set
 					'navbar_skin' => 'navbar-dark',
@@ -62,7 +62,7 @@ class User_model extends CI_Model
 		        'username' => $username,
 		        'email' => $email,
 		        'password' => 'reg.with.google',
-			    'subscription' => 1,
+			    'subscription' => 0,
 
 				// using default color and theme set
 				'navbar_skin' => 'navbar-dark',

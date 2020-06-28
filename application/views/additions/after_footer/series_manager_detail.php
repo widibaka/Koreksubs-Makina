@@ -12,6 +12,49 @@
 
 <script>
 
+
+  function update_gambar(){
+    
+    var poster_url_medium = $("#poster_url_medium").val();
+    $("#poster_medium").attr("src", poster_url_medium);
+    
+    var poster_url_small = $("#poster_url_small").val();
+    $("#poster_small").attr("src", poster_url_small);
+
+  }
+
+  function update_youtube(){
+    
+    var trailer = $("#trailer").val();
+    $("#trailer_play").attr("href", trailer);
+
+  }
+
+    $(function () {
+      // Summernote
+      $('.textarea1').summernote({
+          placeholder: 'Halo selamat pagisiangsoremalam...',
+          tabsize: 2,
+          height: 120,
+          toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+          ]
+        })
+      $('.textarea2').summernote({
+          placeholder: 'Isi credits ...',
+          tabsize: 2,
+          height: 120,
+          toolbar: [
+            ['font', ['bold', 'underline', 'clear']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link']]
+          ]
+        })
+    })
+
   $(document).ready(function(){
 
     $('#form_edit_anime').on('submit',function(e) {
@@ -37,35 +80,10 @@
         }
       });
     });
-    // Ketika reset default
-    $('#reset_default').on('click',function() {
-      $('#trailer_button').attr('href', 'https://youtube.com/watch?v=<?= $kitsu_anime['attributes']['youtubeVideoId']; ?>');
-      $('#title').val('<?php
-                        if (!empty($kitsu_anime['attributes']['titles']['en_jp'])) {
-                           echo str_replace('"', '\"', str_replace("'", "\'", $kitsu_anime['attributes']['titles']['en_jp']));
-                         } 
-                        ?><?php
-                        if (!empty($kitsu_anime['attributes']['titles']['en'])) {
-                           echo ' (' . str_replace('"', '\"', str_replace("'", "\'", $kitsu_anime['attributes']['titles']['en'])) . ')';
-                         } 
-                        ?>');
-      $('#trailer').val('https://youtube.com/watch?v=<?= $kitsu_anime['attributes']['youtubeVideoId']; ?>');
-      $('#poster_url_small').val('<?= $kitsu_anime['attributes']["posterImage"]['small']; ?>');
-      $('#poster_url_medium').val('<?= $kitsu_anime['attributes']["posterImage"]['medium']; ?>');
-      $('#categories').val('<?php
-                      //Echo semua categories
-                      foreach ($kitsu_categories["data"] as $key_cat => $value) {
-                        echo $value["attributes"]["title"].", ";
-                      }
-                   ?>');
-      $('#season').val('<?= $season; ?>');
-      $('#year').val('<?= $year; ?>');
-      $('#kitsu_info').val('<?= $kitsu_info; ?>');
-    });
 
     function successUpdateAnime() {
       swal.fire({
-        title: "Perubahan anime berhasil disimpan",
+        title: "Perubahan berhasil disimpan",
         icon: "success",
         showCancelButton: true,
         confirmButtonText: "Ke halaman client dan lihat perubahan",
@@ -77,20 +95,6 @@
         }
       })
     }
-    $(function () {
-      // Summernote
-      $('.textarea').summernote({
-          placeholder: 'Halo selamat pagisiangsoremalam...',
-          tabsize: 2,
-          height: 120,
-          toolbar: [
-            ['font', ['bold', 'underline', 'clear']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['insert', ['link']],
-            ['view', ['fullscreen', 'codeview', 'help']]
-          ]
-        })
-    })
 
   });
   

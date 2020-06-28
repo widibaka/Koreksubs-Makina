@@ -37,7 +37,7 @@
       <div class="col-12">
         <img style="margin-left: 45%; margin-right: 50%; transform: translate(-50px);" width="150px" src="<?= base_url('assets/dist/img/ori_logo.png') ?>">
       </div>
-      <p class="login-box-msg">Selamat datang di halaman instalasi KM, sebuah aplikasi CMS khusus untuk konten anime.</p>
+      <p class="login-box-msg">Selamat datang di halaman instalasi KM, sebuah aplikasi CMS untuk konten anime maupun movie.</p>
       <div class="social-auth-links text-center mb-3">
         <a href="<?= base_url('installation/configuration/'); ?>" class="btn btn-block btn-primary">
           <i class="fa fa-hdd mr-2"></i> Install now
