@@ -33,6 +33,7 @@
       $('#form_add_new_anime').on('submit',function(e) {
         e.preventDefault();
         $("#save_button").addClass("disabled");
+        $("#save_button").html("Wait ...");
         $("#save_button").attr("disabled", "disabled");
         $.ajax({
           type: $(this).attr('method'),
