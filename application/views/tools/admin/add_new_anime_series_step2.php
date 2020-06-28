@@ -140,7 +140,7 @@
                   </div>
               </div>
               <p class="text-muted text-sm">Poster medium
-                <input type="text" name="poster_url_medium" value="<?= $kitsu_anime['attributes']["posterImage"]['medium']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="poster_url_medium" onchange="update_gambar()" required>
+                <input type="text" name="poster_url_medium" value="<?= $kitsu_anime['attributes']["posterImage"]['medium']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="poster_url_medium" onchange="update_gambar()"  required="required">
               </p>
               <div class="row">
                   <div class="col-12">

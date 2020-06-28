@@ -64,7 +64,6 @@ class Client extends CI_Controller {
  		$data['fansub_preferences'] = $this->Client_model->getFansubPreferences();
  		$data['five_recent_comments'] = $this->Client_model->getFiveRecentComments(); // 5 recnt comment to put into navbar
  		
- 
 		$data['episodes'] 	= $this->Client_model->getAllLatestEpisodes();// limited only 70 episodes in latest update page        
 		$data['page'] 		= "home";        
 
