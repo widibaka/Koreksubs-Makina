@@ -168,7 +168,7 @@ class User_model extends CI_Model
 		$user_id = $this->session->userdata('user_id');
 
 		if ( !empty($this->input->post('kota_asal')) ) {
-			$data1['skills'] =  $this->input->post('kota_asal');
+			$data1['kota_asal'] =  $this->input->post('kota_asal');
 		}
 		if ( !empty($this->input->post('skills')) ) {
 			$data1['skills'] =  $this->input->post('skills');

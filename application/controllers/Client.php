@@ -673,27 +673,29 @@ class Client extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload('profile_pic'))
-		{
-		        $error = $this->upload->display_errors() ;
-		        $this->session->set_flashdata('error',$error);
-		        var_dump($error);
-		        die();
-		}
-		else
-		{
-		        $upload_data = $this->upload->data();
-		        // var_dump($upload_data);
+		if ( empty($_FILES['profile_pic']["error"]) ) { // kalau ada error, misal krn tidak diisi, maka ignore aja
+			if ( ! $this->upload->do_upload('profile_pic'))
+			{
+			        $error = $this->upload->display_errors() ;
+			        $this->session->set_flashdata('error',$error);
+			        var_dump($error);
+			        die();
+			}
+			else
+			{
+			        $upload_data = $this->upload->data();
+			        // var_dump($upload_data);
 
-		        // Compress uploaded file
-		        $user_id = $this->session->userdata('user_id');
-		        $this->load->model('ResizeImage');
-		        $this->ResizeImage->dir( $upload_data['full_path'] );
-		        $this->ResizeImage->resizeTo(250, 250, 'maxHeight');
-		        $this->ResizeImage->saveImage('assets/img/' . $user_id . '.jpg');
+			        // Compress uploaded file
+			        $user_id = $this->session->userdata('user_id');
+			        $this->load->model('ResizeImage');
+			        $this->ResizeImage->dir( $upload_data['full_path'] );
+			        $this->ResizeImage->resizeTo(250, 250, 'maxHeight');
+			        $this->ResizeImage->saveImage('assets/img/' . $user_id . '.jpg');
 
-		        $this->load->helper('file');
-		        unlink( $upload_data['full_path'] ); // delete temporary file
+			        $this->load->helper('file');
+			        unlink( $upload_data['full_path'] ); // delete temporary file
+			}
 		}
 
 		$this->User_model->editProfile();
