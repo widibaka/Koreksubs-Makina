@@ -22,7 +22,7 @@ CREATE TABLE `anime` (
   `kitsu_info` varchar(100) NOT NULL,
   `progress` int(10) NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -36,7 +36,7 @@ CREATE TABLE `comments` (
   `anime_parent_id` int(50) NOT NULL,
   `comment` text NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `episodes` (
   `website` varchar(255) NOT NULL,
   `link_status` varchar(100) NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ CREATE TABLE `fansub_preferences` (
   `custom_menu_name` varchar(100) NOT NULL,
   `status_custom_menu` int(1) NOT NULL,
   `link_custom_menu` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `fansub_preferences`
@@ -90,7 +90,7 @@ CREATE TABLE `pesan` (
   `to` varchar(55) NOT NULL,
   `text` text NOT NULL,
   `timestamp` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ CREATE TABLE `stat` (
   `tahun` year(4) NOT NULL,
   `download_count` int(255) NOT NULL,
   `view_count` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -121,7 +121,7 @@ CREATE TABLE `themes_collection` (
   `brand_color` varchar(55) NOT NULL,
   `sidebar_color` varchar(55) NOT NULL,
   `accent_color` varchar(55) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `themes_collection`
@@ -170,7 +170,7 @@ CREATE TABLE `users` (
   `theme` varchar(55) NOT NULL,
   `sidebar_bg` varchar(255) NOT NULL,
   `subscription` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
@@ -192,7 +192,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `kota_asal`, `s
 CREATE TABLE `stat_num` (
   `view` int(11) NOT NULL,
   `download` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `stat_num`
