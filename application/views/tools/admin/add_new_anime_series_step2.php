@@ -70,9 +70,9 @@
                   </div>
                     <p class="text-muted text-sm">Total Episode (Kosongkan jika tdk ada episode)
                       <?php if ( $kitsu_anime['attributes']["episodeCount"] == -100 ): // -100 adalah kode kalo ini dari anime_kosong.json ?>
-                      <input type="text" name="full_episode" class="form-control form-control-sm is-warning bg-dark bg-dark" value="" placeholder="Total Episode..."  required="required">
+                      <input type="text" name="full_episode" class="form-control form-control-sm is-warning bg-dark bg-dark" value="" placeholder="Total Episode...">
                       <?php else: ?>
-                      <input type="number" name="full_episode" class="form-control form-control-sm is-warning bg-dark bg-dark" value="<?= $kitsu_anime['attributes']["episodeCount"]; ?>" placeholder="Total Episode..."  required="required">                 
+                      <input type="number" name="full_episode" class="form-control form-control-sm is-warning bg-dark bg-dark" value="<?= $kitsu_anime['attributes']["episodeCount"]; ?>" placeholder="Total Episode...">                 
                       <?php endif ?>
                       
                     </p>
@@ -157,12 +157,23 @@
               <br>
               <div class="text-muted">
                 <p class="text-sm">Categories
+                  <?php 
+                    $categories_array = array();
+                    if(!empty($kitsu_categories)){
+                      //Echo semua categories
+                      foreach ($kitsu_categories["data"] as $key_cat => $value) {
+                        array_push( $categories_array, $value["attributes"]["title"] );
+                      }
+                      $size = count($categories_array);
+                    }
+                  ?>
                   <input type="text" name="categories" value="<?php
                       if(!empty($kitsu_categories)){
                         //Echo semua categories
-                        foreach ($kitsu_categories["data"] as $key_cat => $value) {
-                          echo $value["attributes"]["title"].", ";
+                        for ($i=0; $i < $size-2 ; $i++) {
+                          echo $categories_array[$i],', ';
                         }
+                        echo end($categories_array);
                       }
                    ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="...">
                 </p>

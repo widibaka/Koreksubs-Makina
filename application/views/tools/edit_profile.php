@@ -14,15 +14,10 @@
                 </div>
                 <div class="text-center">
                   <div class="img-circle img-bordered mr-auto ml-auto" style="background: url('<?= base_url(); ?>assets/img/<?php 
-                        //Jika foto dengan nama user ada, maka tampilkan. Jika tidak, maka pakai no_photo.jpg 
-                        $semua_foto_profil = $this->Directory_model->directory_to_array('assets/img/');
-                          // var_dump($semua_foto_profil);
-                        if( in_array( 'assets/img/' . $this->session->userdata("user_id") . '.jpg', $semua_foto_profil ) ){
-                          echo strtolower($this->session->userdata("user_id"));
-                        } else {
-                          echo 'no_photo';
-                        }
-                        ?>.jpg?<?php echo mt_rand(10,1000); //Kasih tanda tanya dan angka random, biar refresh terus setiap reload page, nggak di-cache oleh browser ?>') center; width: 180px; height: 180px; background-size: cover;">
+                  $user_id = $this->session->userdata("user_id");
+                  $userdata = $this->User_model->getUserDataById( $user_id )[0];
+                  echo $userdata['photo'];
+                ?>') center; width: 180px; height: 180px; background-size: cover;">
                   </div>
                 </div>
 

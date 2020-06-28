@@ -59,16 +59,17 @@ class Client extends CI_Controller {
 	}
 	public function Home()
 	{
+		$limit = 100;
 
 		$data['theme'] = $this->User_model->getTheme();
  		$data['fansub_preferences'] = $this->Client_model->getFansubPreferences();
  		$data['five_recent_comments'] = $this->Client_model->getFiveRecentComments(); // 5 recnt comment to put into navbar
  		
-		$data['episodes'] 	= $this->Client_model->getAllLatestEpisodes();// limited only 70 episodes in latest update page        
+		$data['episodes'] 	= $this->Client_model->getAllLatestEpisodes( 100 );// limited to avoid lagging . in the bracket is the limit number      
 		$data['page'] 		= "home";        
 
 		$data['page_title'] = "Home";
-		$data['download_title'] = 'Update Terbaru (40 file terbaru)'; // set anime title to something other than title, to avoid error
+		$data['download_title'] = 'Update Terbaru ('.$limit.' file terbaru)'; // set anime title to something other than title, to avoid error
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('templates/sidebar', $data);

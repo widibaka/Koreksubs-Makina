@@ -275,25 +275,29 @@
                   </div>
 
               </div>
-              <div class="progress">
-                  <?php 
-                      if (!empty($anime['full_episode'])) {
-                        $progress_width = round($anime['progress'] / $anime['full_episode'] * 100);
-                        $progress_width_percent = $progress_width . '%';
-                        $progress = $anime['progress'];
-                        $full_episode = $anime['full_episode'];
-                      }else{
-                        $progress_width_percent = '0%';
-                        $full_episode = '(Na)';
-                      }
-                  
-                  ?>
-                <div class="progress-bar" role="progressbar" style="width: <?= $progress_width_percent; ?>;" aria-valuenow="<?= $progress_width_percent; ?>" aria-valuemin="0" aria-valuemax="100"><?= $progress_width_percent; ?>
+              <?php if ( !empty($anime['full_episode']) ): ?>
+                
+                <div class="progress">
+                    <?php 
+                        if (!empty($anime['full_episode'])) {
+                          $progress_width = round($anime['progress'] / $anime['full_episode'] * 100);
+                          $progress_width_percent = $progress_width . '%';
+                          $progress = $anime['progress'];
+                          $full_episode = $anime['full_episode'];
+                        }else{
+                          $progress_width_percent = '0%';
+                          $full_episode = '(Na)';
+                        }
+                    
+                    ?>
+                  <div class="progress-bar" role="progressbar" style="width: <?= $progress_width_percent; ?>;" aria-valuenow="<?= $progress_width_percent; ?>" aria-valuemin="0" aria-valuemax="100"><?= $progress_width_percent; ?>
+                  </div>
                 </div>
-              </div>
-                  <p>
-                    <?php echo $progress .'/'. $full_episode; ?> Episode
-                  </p>
+                    <p>
+                      <?php echo $progress .'/'. $full_episode; ?> Episode
+                    </p>
+
+              <?php endif ?>
               <br>
 
               <div class="text-muted text-sm">

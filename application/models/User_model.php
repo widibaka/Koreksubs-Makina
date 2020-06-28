@@ -36,6 +36,8 @@ class User_model extends CI_Model
 					'theme' => 'Maid_Saber',
 					'sidebar_bg' => $sidebar_bg,
 					'timestamp' => $waktu_saat_ini,
+					'photo' => 'no_photo.jpg',
+					
 			);
 			$this->db->insert('users',$data);
 
@@ -73,6 +75,7 @@ class User_model extends CI_Model
 				'theme' => 'Maid_Saber',
 				'sidebar_bg' => $sidebar_bg,
 				'timestamp' => $waktu_saat_ini,
+					'photo' => 'no_photo.jpg',
 		);
 		$this->db->insert('users',$data);
 
@@ -154,22 +157,25 @@ class User_model extends CI_Model
 
 	public function editProfile()
 	{
+		$angka_acak = mt_rand(1, 1000000);
 		if ( !empty($this->input->post('kota_asal')) ) {
 			$kota_asal =  $this->input->post('kota_asal', true);
+			$user_id = $this->session->userdata('user_id');
 			$data1 = array(
 			        'kota_asal' => $kota_asal,
+			        'photo' => $user_id.'.jpg?refresh='.$angka_acak,
 			);
-			$user_id = $this->session->userdata('user_id');
 
 			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data1);
 		}
 		if ( !empty($this->input->post('skills')) ) {
 			$skills =  $this->input->post('skills', true);
+			$user_id = $this->session->userdata('user_id');
 			$data1 = array(
 			        'skills' => $skills,
+			        'photo' => $user_id.'.jpg?refresh='.$angka_acak,
 			);
-			$user_id = $this->session->userdata('user_id');
 
 			$this->db->where('user_id', $user_id);
 			$this->db->update('users', $data1);

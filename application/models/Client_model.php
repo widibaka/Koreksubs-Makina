@@ -16,10 +16,10 @@ class Client_model extends CI_Model
 		return $episodes;
 	}
 
-	public function getAllLatestEpisodes()
+	public function getAllLatestEpisodes($limit)
 	{
 		$this->db->order_by('anime_child_id', 'DESC');
-		$this->db->limit(40); // limited until 70th to avoid lagging
+		$this->db->limit( $limit ); // limited to avoid lagging
 		$query = $this->db->get('episodes');  // Produces: SELECT * FROM mytable
 		$episodes = $query->result_array();
 		foreach ($episodes as $i => $eps) {
