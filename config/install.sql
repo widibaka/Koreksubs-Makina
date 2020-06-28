@@ -1,6 +1,3 @@
---
--- Table structure for table `anime`
---
 
 CREATE TABLE `anime` (
   `anime_parent_id` int(11) NOT NULL,
@@ -76,7 +73,7 @@ CREATE TABLE `fansub_preferences` (
 --
 
 INSERT INTO `fansub_preferences` (`id`, `fansub_name`, `rows_perpage_tile`, `rows_perpage_list`, `about_text`, `custom_menu_name`, `status_custom_menu`, `link_custom_menu`) VALUES
-(1, 'Koreksubs Makina', 9, 15, 'KorekSubs adalah Fansub dan Fanshare anime sub indo (subtitle indonesia). <br>Semua konten yang ada di website ini adalah hasil dari orang-orang hebat yang tercantum di \"credits\". <br>KorekSubs sama sekali bukanlah pemilik asli dari konten subtitle, apalagi anime yang dipajang di setiap halaman website ini.', '[Custom Menu]', 0, 'nama_item1@http://link_item1@nama_item2@http://link_item2');
+(1, 'Koreksubs Makina', 9, 15, 'Masukkan Deskripsi <br>Di sini.', '[Custom Menu]', 1, 'ubah_custom_menu@http://google.com@ubah_custom_menu@http://google.com');
 
 -- --------------------------------------------------------
 
@@ -91,7 +88,6 @@ CREATE TABLE `pesan` (
   `text` text NOT NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- --------------------------------------------------------
 
 --
@@ -105,6 +101,19 @@ CREATE TABLE `stat` (
   `download_count` int(255) NOT NULL,
   `view_count` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stat_num`
+--
+
+CREATE TABLE `stat_num` (
+  `view` int(11) NOT NULL,
+  `download` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -169,40 +178,20 @@ CREATE TABLE `users` (
   `accent_color` varchar(55) NOT NULL,
   `theme` varchar(55) NOT NULL,
   `sidebar_bg` varchar(255) NOT NULL,
-  `subscription` int(11) NOT NULL
+  `subscription` int(11) NOT NULL,
+  `photo` varchar(66) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `kota_asal`, `skills`, `message_read`, `admin`, `timestamp`, `navbar_skin`, `navbar_varian`, `brand_color`, `sidebar_color`, `accent_color`, `theme`, `sidebar_bg`, `subscription`) VALUES
-(1, 'admin', 'admin@admin', 'admin', 'Surakarta', 'Encoding/Compressing, Translate, Typesetting, Programming', 0, 2, '2020-02-23 14:36:48', 'navbar-dark', 'navbar-navy', 'primary', 'sidebar-dark-primary', 'primary', 'Yato', 'http://localhost/fansub_new/assets/img/theme/yato.jpg', 1);
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `kota_asal`, `skills`, `message_read`, `admin`, `timestamp`, `navbar_skin`, `navbar_varian`, `brand_color`, `sidebar_color`, `accent_color`, `theme`, `sidebar_bg`, `subscription`, `photo`) VALUES
+(1, 'admin', 'admin@admin', 'admin', 'Surakarta', 'Encoding/Compressing, Translate, Typesetting, Programming', 0, 2, '2020-02-23 14:36:48', 'navbar-light', 'navbar-white', 'indigo', 'sidebar-light-indigo', 'purple', 'Emilia', 'http://localhost/Koreksubs-Makina/assets/img/theme/emilia.png', 1, '1.jpg?refresh=968031');
 
 --
 -- Indexes for dumped tables
 --
-
-
-
---
--- Table structure for table `stat_num`
---
-
-CREATE TABLE `stat_num` (
-  `view` int(11) NOT NULL,
-  `download` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `stat_num`
---
-
-INSERT INTO `stat_num` (`view`, `download`) VALUES
-(0, 0);
-COMMIT;
-
-
 
 --
 -- Indexes for table `anime`
@@ -262,7 +251,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `anime_parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
+  MODIFY `anime_parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -274,7 +263,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `episodes`
 --
 ALTER TABLE `episodes`
-  MODIFY `anime_child_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `anime_child_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `fansub_preferences`
@@ -286,13 +275,13 @@ ALTER TABLE `fansub_preferences`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `stat`
 --
 ALTER TABLE `stat`
-  MODIFY `id` int(66) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(66) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `themes_collection`
@@ -304,7 +293,7 @@ ALTER TABLE `themes_collection`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Constraints for dumped tables
