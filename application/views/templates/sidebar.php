@@ -17,8 +17,12 @@
 
       	      <div class="img-circle elevation-2" style="background: url('<?= base_url(); ?>assets/img/<?php 
                   $user_id = $this->session->userdata("user_id");
-                  $userdata = $this->User_model->getUserDataById( $user_id )[0];
-                  echo $userdata['photo'];
+                  if($user_id){
+                    $userdata = $this->User_model->getUserDataById( $user_id )[0];
+                    echo $userdata['photo'];
+                  }else{
+                    echo 'no_photo.jpg';
+                   }
                 ?>') center; width: 40px; height: 40px; background-size: cover;">
       	      </div>
       	  </div>

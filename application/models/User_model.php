@@ -157,29 +157,26 @@ class User_model extends CI_Model
 
 	public function editProfile()
 	{
-		$angka_acak = mt_rand(1, 1000000);
-		if ( !empty($this->input->post('kota_asal')) ) {
-			$kota_asal =  $this->input->post('kota_asal', true);
-			$user_id = $this->session->userdata('user_id');
-			$data1 = array(
+		// lebih dinamis algoritmmanya
+		$data1 = array(
 			        'kota_asal' => $kota_asal,
 			        'photo' => $user_id.'.jpg?refresh='.$angka_acak,
-			);
+		);
+		$angka_acak = mt_rand(1, 1000000);
 
-			$this->db->where('user_id', $user_id);
-			$this->db->update('users', $data1);
+		$kota_asal =  $this->input->post('kota_asal', true);
+		$user_id = $this->session->userdata('user_id');
+
+		if ( !empty($this->input->post('kota_asal')) ) {
+			$data1['skills'] =  $this->input->post('kota_asal');
 		}
 		if ( !empty($this->input->post('skills')) ) {
-			$skills =  $this->input->post('skills', true);
-			$user_id = $this->session->userdata('user_id');
-			$data1 = array(
-			        'skills' => $skills,
-			        'photo' => $user_id.'.jpg?refresh='.$angka_acak,
-			);
-
-			$this->db->where('user_id', $user_id);
-			$this->db->update('users', $data1);
+			$data1['skills'] =  $this->input->post('skills');
 		}
+		$data1['photo'] = $user_id.'.jpg?refresh='.$angka_acak;
+
+		$this->db->where('user_id', $user_id);
+		$this->db->update('users', $data1);
 
 	}
 
