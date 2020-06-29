@@ -48,9 +48,9 @@ if ($page == 'message') {
   <footer class="main-footer">
     <strong>Copyright &copy; <script>document.write(new Date().getFullYear())</script> 
       <?= $fansub_preferences['fansub_name'] ?>.</strong>
-    All rights reserved.
+    All rights are not reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <a href="https://github.com/widibaka/"><b>App Ver.</b> 8.2.6</a>
+      <a href="https://github.com/widibaka/Koreksubs-Makina"><b>App Ver.</b> 8.4.0</a>
     </div>
   </footer>
 </div>
