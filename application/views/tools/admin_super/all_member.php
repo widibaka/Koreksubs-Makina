@@ -2,7 +2,7 @@
 <?php if (empty($all_member)) :?>
 <div class="row">
   <div class="col-12 text-center">
-      <i><p class="text-muted"><i class="fa fa-times-circle"></i> 404 Data tidak ditemukan.</p></i>
+      <i><p class="text-muted"><i class="fa fa-times-circle"></i> Data tidak ditemukan.</p></i>
   </div>
 </div>
 

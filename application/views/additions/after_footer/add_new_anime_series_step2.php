@@ -14,7 +14,7 @@
 <script>
   $(function () {
     // Summernote
-    $('.textarea').summernote({
+    $('.textarea1').summernote({
         placeholder: 'Halo selamat pagisiangsoremalam...',
         tabsize: 2,
         height: 120,
@@ -25,7 +25,34 @@
           ['view', ['fullscreen', 'codeview', 'help']]
         ]
       })
+    $('.textarea2').summernote({
+        placeholder: 'Credits di sini...',
+        tabsize: 2,
+        height: 120,
+        toolbar: [
+          ['font', ['bold', 'underline', 'clear']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['insert', ['link']]
+        ]
+      })
   })
+
+  function update_gambar(){
+    
+    var poster_url_medium = $("#poster_url_medium").val();
+    $("#poster_medium").attr("src", poster_url_medium);
+    
+    var poster_url_small = $("#poster_url_small").val();
+    $("#poster_small").attr("src", poster_url_small);
+
+  }
+
+  function update_youtube(){
+    
+    var trailer = $("#trailer").val();
+    $("#trailer_play").attr("href", trailer);
+
+  }
 </script>
 
 <!-- form_add_new_anime script -->
@@ -33,6 +60,7 @@
       $('#form_add_new_anime').on('submit',function(e) {
         e.preventDefault();
         $("#save_button").addClass("disabled");
+        $("#save_button").html("Wait ...");
         $("#save_button").attr("disabled", "disabled");
         $.ajax({
           type: $(this).attr('method'),

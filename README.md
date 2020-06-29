@@ -46,6 +46,8 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Silakan hubungi WA 6281226203761 untuk ngobrol dgn saya :)
 ************
 # Rencana Mendatang
+- Fitur baru custom release
+- Struktur sidebar back-end yang baru
 - Membuat dokumentasi untuk mempermudah pengguna
 - Membuat video tutorial di youtube, dari instalasi sampai penggunaan
 - Notifikasi lewat e-mail masih ada bug, tapi belum diperbaiki

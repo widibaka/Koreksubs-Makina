@@ -16,15 +16,14 @@
       	  <div class="image">
 
       	      <div class="img-circle elevation-2" style="background: url('<?= base_url(); ?>assets/img/<?php 
-      	            //Jika foto dengan nama user ada, maka tampilkan. Jika tidak, maka pakai no_photo.jpg 
-      	            $semua_foto_profil = $this->Directory_model->directory_to_array('assets/img/');
-      	              // var_dump($semua_foto_profil);
-      	            if( in_array( 'assets/img/' . $this->session->userdata("user_id") . '.jpg', $semua_foto_profil ) ){
-      	              echo strtolower($this->session->userdata("user_id"));
-      	            } else {
-      	              echo 'no_photo';
-      	            }
-      	            ?>.jpg?') center; width: 40px; height: 40px; background-size: cover;">
+                  $user_id = $this->session->userdata("user_id");
+                  if($user_id){
+                    $userdata = $this->User_model->getUserDataById( $user_id )[0];
+                    echo $userdata['photo'];
+                  }else{
+                    echo 'no_photo.jpg';
+                   }
+                ?>') center; width: 40px; height: 40px; background-size: cover;">
       	      </div>
       	  </div>
       	  <div class="info">
@@ -78,7 +77,7 @@
             <a href="<?= base_url(); ?>client/collection.asp" class="nav-link sidebar_null" id="collection">
               <i class="nav-icon fa fa-list"></i>
               <p>
-                Anime List
+                List A-Z
               </p>
             </a>
           </li>
@@ -221,7 +220,7 @@
             <a href="<?= base_url('admin/add_new_anime_series.asp'); ?>" class="nav-link sidebar_null" id="add_new_anime_series">
               <i class="nav-icon fa fa-plus"></i>
               <p>
-                Add New Anime Series
+                Add New Series
               </p>
             </a>
           </li>
@@ -229,7 +228,7 @@
             <a href="<?= base_url('admin/series_manager.asp'); ?>" class="nav-link sidebar_null" id="series_manager">
               <i class="nav-icon fas fa-tasks"></i>
               <p>
-                Anime manager
+                Series Manager
               </p>
             </a>
           </li>

@@ -24,6 +24,18 @@
 	                <textarea type="text" class="form-control" name="about_text"><?php echo $fansub_preferences['about_text'] ?></textarea>
 	              	<p class="mb-1 mt-3">Logo</p>
 	              	<code>Logo bisa diganti di directory : assets/dist/img/Logo.png</code>
+	              	<p class="mb-1 mt-3">Theme default (yang dilihat oleh Guest) </p>
+	                <select class="form-control" name="theme_default">
+	                	<?php foreach ($themes_collection as $key => $value): ?>
+	                		<?php if ( $fansub_preferences['theme_default'] == $value['name'] ): ?>
+	                		<option selected><?= $value['name'] ?></option>
+	                		<?php else: ?>
+	                		<option><?= $value['name'] ?></option>
+	                		<?php endif ?>
+	                		
+	                	<?php endforeach ?>
+	                	
+	                </select>
 	                <button class="float-right btn mt-2 bg-warning" type="submit" id="simpan">Simpan</button>
 	              </form>
 	            </div>

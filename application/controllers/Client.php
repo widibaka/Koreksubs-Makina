@@ -59,17 +59,17 @@ class Client extends CI_Controller {
 	}
 	public function Home()
 	{
+		$limit = 100;
 
 		$data['theme'] = $this->User_model->getTheme();
  		$data['fansub_preferences'] = $this->Client_model->getFansubPreferences();
  		$data['five_recent_comments'] = $this->Client_model->getFiveRecentComments(); // 5 recnt comment to put into navbar
  		
- 
-		$data['episodes'] 	= $this->Client_model->getAllLatestEpisodes();// limited only 70 episodes in latest update page        
+		$data['episodes'] 	= $this->Client_model->getAllLatestEpisodes( 100 );// limited to avoid lagging . in the bracket is the limit number      
 		$data['page'] 		= "home";        
 
 		$data['page_title'] = "Home";
-		$data['download_title'] = 'Update Terbaru (40 file terbaru)'; // set anime title to something other than title, to avoid error
+		$data['download_title'] = 'Update Terbaru ('.$limit.' file terbaru)'; // set anime title to something other than title, to avoid error
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -673,27 +673,29 @@ class Client extends CI_Controller {
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload('profile_pic'))
-		{
-		        $error = $this->upload->display_errors() ;
-		        $this->session->set_flashdata('error',$error);
-		        var_dump($error);
-		        die();
-		}
-		else
-		{
-		        $upload_data = $this->upload->data();
-		        // var_dump($upload_data);
+		if ( empty($_FILES['profile_pic']["error"]) ) { // kalau ada error, misal krn tidak diisi, maka ignore aja
+			if ( ! $this->upload->do_upload('profile_pic'))
+			{
+			        $error = $this->upload->display_errors() ;
+			        $this->session->set_flashdata('error',$error);
+			        var_dump($error);
+			        die();
+			}
+			else
+			{
+			        $upload_data = $this->upload->data();
+			        // var_dump($upload_data);
 
-		        // Compress uploaded file
-		        $user_id = $this->session->userdata('user_id');
-		        $this->load->model('ResizeImage');
-		        $this->ResizeImage->dir( $upload_data['full_path'] );
-		        $this->ResizeImage->resizeTo(250, 250, 'maxHeight');
-		        $this->ResizeImage->saveImage('assets/img/' . $user_id . '.jpg');
+			        // Compress uploaded file
+			        $user_id = $this->session->userdata('user_id');
+			        $this->load->model('ResizeImage');
+			        $this->ResizeImage->dir( $upload_data['full_path'] );
+			        $this->ResizeImage->resizeTo(250, 250, 'maxHeight');
+			        $this->ResizeImage->saveImage('assets/img/' . $user_id . '.jpg');
 
-		        $this->load->helper('file');
-		        unlink( $upload_data['full_path'] ); // delete temporary file
+			        $this->load->helper('file');
+			        unlink( $upload_data['full_path'] ); // delete temporary file
+			}
 		}
 
 		$this->User_model->editProfile();

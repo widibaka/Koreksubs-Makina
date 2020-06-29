@@ -39,21 +39,34 @@
                     <form action="" method="post" role="form border" id="form_add_episode">
                       <div class="card-body">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">File name</label>
-                          <input type="hidden" value="yes" name="is_add_episode">
-                          <input type="hidden" class="form-control" value="<?= $anime['anime_parent_id'] ?>" name="anime_parent_id">
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Place file name here..." name="file_name" required>
+                          <label for="">Link Downloads</label>
+                          <br><small class="text-muted text-sm"><i>Anda dapat dengan mudah menambah episode hanya dengan memasukkan link tanpa harus mengetik nama link dan nama file.</i></small>
+                       <!--    <br><small class="text-muted text-sm"><i>Anda dapat menyimpan link dengan cara input</i> <font color="red">"http://url_download@nama_url"</font><i> dengan '@' sebagai pemisah.</i></small>
+                          <br><small class="text-muted text-sm"><i>Atau multiple link dengan cara input</i> <font color="red">"http://url_download1@nama_url1@http://url_download2@nama_url2"</font>.</small>
+                          <br><small class="text-muted text-sm"><i>Contoh.</i> <font color="red">"http://google.com/url_download@GoogleDrive@http://mega.nz/url_download@Mega"</font>.</small> -->
+                          <textarea name="links" id="links" class="d-none"></textarea><br>
+                          <div class="row" id="link_inputs">
+                            <input type="text" class="form-control col-md-8 mt-1" placeholder="Link 1 download goes here..." id="link1" name="link1" required onchange="getMetaOfLink(1)">
+                            <input type="text" class="form-control col-md-4 mt-1 nama_link" id="nama_link1" placeholder="Nama link 1..." name="nama_link1" required>
+                          </div>
+                          <div class="form-group mb-5">
+                            <div class="col-12 mt-2">
+                              <a href="javascript:void(0)" class="btn btn-primary float-right" id="tambah_input_link" onclick="tambah_link()"><i class="fa fa-plus"></i> Tambah link</a>
+                            </div>
+                            <div class="col-12 mt-2">
+                              <a href="javascript:void(0)" class="btn btn-primary float-right mr-2" id="tambah_input_link" onclick="kurangi_link()"><i class="fa fa-minus"></i> Kurangi link</a>
+                            </div>
+                          </div>
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputPassword1">Link Downloads</label>
-                          <br><small class="text-muted text-sm"><i>Anda dapat menyimpan link dengan cara input</i> <font color="red">"http://url_download@nama_url"</font><i> dengan '@' sebagai pemisah.</i></small>
-                          <br><small class="text-muted text-sm"><i>Atau multiple link dengan cara input</i> <font color="red">"http://url_download1@nama_url1@http://url_download2@nama_url2"</font>.</small>
-                          <br><small class="text-muted text-sm"><i>Contoh.</i> <font color="red">"http://google.com/url_download@GoogleDrive@http://mega.nz/url_download@Mega"</font>.</small>
-                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Link download goes here..." name="links" required>
+                          <label for="">File name</label>
+                          <input type="hidden" value="yes" name="is_add_episode">
+                          <input type="hidden" class="form-control" value="<?= $anime['anime_parent_id'] ?>" name="anime_parent_id">
+                          <input type="text" class="form-control" id="file_name1" placeholder="Place file name here..." name="file_name" required>
                         </div>
                         <div class="form-group"> 
-                          <label for="exampleInputPassword1">Sumber Website</label>
-                          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="And website source is here..." name="website" required>
+                          <label for="">Sumber Website</label>
+                          <input type="text" class="form-control" id="" placeholder="And website source is here..." name="website">
                        </div>
                       </div>
                           <button type="submit" name="add_new_episode_button" class="float-right btn btn-primary" id="add_new_episode_button">Add new episode</button>
@@ -85,7 +98,7 @@
                   </div>
                   <div class="tab-pane fade" id="progress" role="tabpanel">
                      <div class="form-group">
-                      <label for="exampleInputEmail1">Sampai mana progres kamu?</label>
+                      <label for="">Sampai mana progres kamu?</label>
                        <form action="" method="post" role="form border" id="form_progress">
                           Sudah
                           <div class="row col-2">
@@ -174,7 +187,7 @@
                       <input type="hidden" name="anime_child_id" value="<?= $eps['anime_child_id']; ?>">
                       <button title="Hapus episode ini" class="btn btn-sm btn-danger mt-1" type="submit" name="delete_episode" value="delete_episode" id="delete_episode_button-<?= $eps['anime_child_id']; ?>" ><i class="fas fa-trash"></i></button>
                     </form>
-                      <button type="button" title="Edit episode ini" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal-edit<?php echo $eps['anime_child_id'] ?>" id="button-edit-episode<?php echo $eps['anime_child_id'] ?>">
+                      <button type="button" title="Edit episode ini" class="btn btn-sm btn-primary mt-1" data-toggle="modal" data-target="#modal-edit" onclick="updateEpisode(<?= $eps['anime_child_id']; ?>)">
                         <i class="fas fa-pencil-alt"></i>
                       </button>
                       <?php
@@ -229,8 +242,7 @@
 
 
 
-<?php foreach ($episodes as $eps) :?>
-<div class="modal fade" id="modal-edit<?= $eps['anime_child_id']; ?>">
+<div class="modal fade" id="modal-edit">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -246,19 +258,22 @@
           <form action="" method="post" role="form border" id="form_edit_episode">
             <div class="card-body">
                 <input type="hidden" value="yes" name="is_edit_episode">
-                <input type="hidden" value="<?= $eps['anime_child_id'] ?>" name="anime_child_id">
+                <input type="hidden" value="" name="anime_child_id" id="anime_child_id">
               <div class="form-group">
-                <label for="exampleInputEmail1">File name</label>
+                <label for="">File name</label>
                 <input type="hidden" value="<?= $anime['anime_parent_id'] ?>" name="anime_parent_id">
-                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Place file name here..." name="file_name" value="<?= $eps['file_name']; ?>" required>
+                <input type="text" class="form-control" id="" placeholder="Place file name here..." name="file_name" value="<?= $eps['file_name']; ?>" id="file_name" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Link Downloads</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Link download goes here..." name="links" value="<?= $eps['links']; ?>" required>
+                <label for="">Link Downloads</label>
+                <textarea name="links" id="links_edit" class="d-none"></textarea><br>                
+                <div class="row"  id="links_in_modal">
+                  
+                </div>
               </div>
               <div class="form-group"> 
-                <label for="exampleInputPassword1">Sumber Website</label>
-                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="And website source is here..." name="website" value="<?= $eps['website']; ?>" required>
+                <label for="">Sumber Website</label>
+                <input type="text" class="form-control" id="" placeholder="And website source is here..." name="website" value="<?= $eps['website']; ?>">
              </div>
             </div>
 
@@ -267,7 +282,7 @@
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" name="simpan_perubahan_episode" value="1" type="button" class="btn btn-primary">Simpan perubahan</button>
+        <button type="submit" name="simpan_perubahan_episode" value="1" type="button" class="btn btn-primary" id="simpan_perubahan_episode">Simpan perubahan</button>
       </div>
          
 
@@ -278,7 +293,6 @@
   <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<?php endforeach; ?>
 
 
 

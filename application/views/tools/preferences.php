@@ -23,6 +23,7 @@
                     <input type="hidden" class="form-control" name="status" value="0" id="status">
                     <button class="float-right btn mt-2 bg-danger btn btn-sm" type="submit" id="simpan">Matikan</button></p>
                   <?php endif ?>
+                  <br><i>(Fitur ini sedang dalam tahap pengembangan)</i>
                 </form>
               </div>
               <!-- /.card-body -->

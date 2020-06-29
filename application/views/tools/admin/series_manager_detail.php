@@ -35,7 +35,7 @@
                   </a>
                     <p class="text-muted text-sm">Trailer url
                       <input type="hidden" name="anime_parent_id" required value="<?= $id; ?>" id="anime_parent_id">
-                      <input type="text" name="trailer" required value="<?= $anime['trailer']; ?>" class="form-control form-control-sm is-warning bg-dark bg-dark" placeholder="Tempatkan link youtube..." id="trailer">
+                      <input type="text" name="trailer" value="<?= $anime['trailer']; ?>" class="form-control form-control-sm is-warning bg-dark bg-dark" placeholder="Tempatkan link youtube..." id="trailer">
                     </p>
                 </div>
                 <div class="col-12 col-sm-4">
@@ -45,7 +45,7 @@
                       <span class="info-box-text text-center mb-0 mt-0" style="font-size: 14px; color: #ddd;"><i><?= $anime['download_count'] ?> kali</i></span>
                     </div>
                   </a>
-                    <p class="text-muted text-sm">Judul anime
+                    <p class="text-muted text-sm">Judul
                       <input type="text" name="title" value="<?= $anime['title']; ?>" class="form-control form-control-sm is-warning bg-dark bg-dark" placeholder="Judul..." id="title">
                     </p>
                 </div>
@@ -65,13 +65,8 @@
                       <!-- Sinopsis -->
                       <div class="mb-3">
                         <strong>Sinopsis</strong> <br>
-                        <p>English:
-                        <textarea disabled style="width: 100%; height: 140px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" id="sinopsis_english"><?= $kitsu_anime["attributes"]["synopsis"]; ?></textarea>
-                        </p>
-
                         <p>Indonesia:<br>
-                        <small><i>Silakan terjemahkan dari atas itu, atau copas aja langsung.</i></small>
-                        <textarea class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="sinopsis"><?= $anime['sinopsis']; ?></textarea>
+                        <textarea class="textarea1" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="sinopsis"><?= $anime['sinopsis']; ?></textarea>
                         </p>
                       </div>
                         
@@ -109,12 +104,19 @@
               </div>
             </div>
             <div class="col-12 col-md-12 col-lg-4 order-1 order-lg-2">
-                    <p class="text-muted text-sm">Poster small (Muncul di halaman depan)
-                      <input type="text" name="poster_url_small" required value="<?= $anime['poster_url_small']; ?>" class="form-control form-control-sm is-warning bg-dark"  placeholder="autofilled..." id="poster_url_small">
-                    </p>
-                    <p class="text-muted text-sm">Poster medium (Muncul di hlmn detil anime)
-                      <input type="text" name="poster_url_medium" required value="<?= $anime['poster_url_medium']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="autofilled..." id="poster_url_medium">
-                    </p>
+              <p class="text-muted text-sm">Poster small
+                <input type="text" name="poster_url_small" value="<?= $anime['poster_url_small']; ?>" class="form-control form-control-sm is-warning bg-dark"  placeholder="..." id="poster_url_small" onchange="update_gambar()">
+              </p>
+              <div class="row">
+                  <div class="col-12">
+                    <div class="bg-light">
+                      <img style="width: 150px;" src="<?= $anime['poster_url_small']; ?>" class="img-fluid  mx-auto d-block" alt="Masukkan URI Gambar yang Valid" id="poster_small">
+                    </div>
+                  </div>
+              </div>
+              <p class="text-muted text-sm">Poster medium
+                <input type="text" name="poster_url_medium" value="<?= $anime['poster_url_medium']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="poster_url_medium" onchange="update_gambar()">
+              </p>
               <div class="row">
                   <div class="col-12">
                     <div class="bg-light">
@@ -123,7 +125,7 @@
                           <i class="fas fa-star"></i> <?= $anime['rating']; ?> rated
                         </div>
                       </div>
-                      <img src="<?= $anime['poster_url_medium']; ?>" class="img-fluid  mx-auto d-block" alt="Responsive image" id="poster_image">
+                      <img src="<?= $anime['poster_url_medium']; ?>" class="img-fluid  mx-auto d-block" alt="Masukkan URI Gambar yang Valid" id="poster_medium">
                     </div>
                   </div>
 
@@ -150,16 +152,16 @@
               <br>
               <div class="text-muted">
                 <p class="text-sm">Categories
-                  <input type="text" name="categories" required value="<?= $anime['categories']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="autofilled..." id="categories">
+                  <input type="text" name="categories" required value="<?= $anime['categories']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="categories">
                 </p>
                 <p class="text-sm">Musim
-                  <input type="text" name="season" required value="<?= $anime['season']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="autofilled..." id="season">
+                  <input type="text" name="season" required value="<?= $anime['season']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="season">
                 </p>
                 <p class="text-sm">Tahun
-                  <input type="text" name="year" required value="<?= $anime['year']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="autofilled..." id="year">
+                  <input type="text" name="year" required value="<?= $anime['year']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="..." id="year">
                 </p>
                 <p class="text-sm">Credits
-                  <textarea name="credits" class="textarea form-control form-control-sm is-warning bg-dark"><?= $anime['credits']; ?></textarea>
+                  <textarea name="credits" class="textarea2 form-control form-control-sm is-warning bg-dark"><?= $anime['credits']; ?></textarea>
                 </p>
                 <p class="text-sm">Keterangan Singkat
                   <input type="text" name="ket" value="<?= $anime['ket']; ?>" class="form-control form-control-sm is-warning bg-dark" placeholder="Misal, oleh AWSubs atau MoeSubs...">
@@ -174,7 +176,7 @@
         <!-- /.card-body -->
         <div class="card-footer">
           <button type="submit" name="submit" class="float-right btn btn-primary" id="save_edit">Save edit</button>
-          <a href="javascript:void(0);" class="float-right btn btn-secondary mr-3" id="reset_default">Reset default</a>
+          <!-- <a href="javascript:void(0);" class="float-right btn btn-secondary mr-3" id="reset_default">Reset default</a> -->
         </div>
       </div>
       <!-- /.card -->

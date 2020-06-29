@@ -12,7 +12,7 @@ class Admin_model extends CI_Model
 
 	public function kitsuAPI_single($anime_name)
 	{
-		$kitsu_anime = file_get_contents('https://kitsu.io/api/edge/anime?filter[text]='. $anime_name .'&page[limit]=1');
+		$kitsu_anime = file_get_contents('http://kitsu.io/api/edge/anime?filter[text]='. $anime_name .'&page[limit]=1');
 		if ( empty($kitsu_anime) ) {
 			echo "<script>alert('ERROR API! Tampaknya ada yang salah dengan Kitsu API.')</script>";
 			exit();
@@ -58,7 +58,7 @@ class Admin_model extends CI_Model
 			$data = array(
 			        'anime_parent_id' => $anime_parent_id,
 			        'file_name' => $file_name,
-			        'links' => $links,
+			        'links' => substr($links, 0,-1), // ada karakter pengganggu @ di bagian buntut. harus dihilangkan
 			        'website' => $website,
 			        'link_status' => "0,0",
 			        'timestamp' => $waktu_saat_ini,
@@ -73,7 +73,7 @@ class Admin_model extends CI_Model
 			$waktu_saat_ini = date("Y-m-d H:i:s");
 			$data = array(
 			        'file_name' => $file_name,
-			        'links' => $links,
+			        'links' => substr($links, 0, -1),
 			        'website' => $website,
 			        'timestamp' => $waktu_saat_ini,
 			);
@@ -275,6 +275,7 @@ class Admin_model extends CI_Model
 			        'rows_perpage_tile' => $this->input->post('rows_perpage_tile', true),
 			        'rows_perpage_list' => $this->input->post('rows_perpage_list', true),
 			        'about_text' => $this->input->post('about_text', true),
+			        'theme_default' => $this->input->post('theme_default', true),
 			);
 			$this->db->where('id', 1);
 			$this->db->update('fansub_preferences', $data1);

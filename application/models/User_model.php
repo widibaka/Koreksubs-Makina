@@ -25,7 +25,7 @@ class User_model extends CI_Model
 			        'message_read' => 0,
 			        'admin' => 0,
 			        'kota_asal' => $this->input->post('kota_asal'),
-			        'subscription' => 1,
+			        'subscription' => 0,
 
 					// using default color and theme set
 					'navbar_skin' => 'navbar-dark',
@@ -36,6 +36,8 @@ class User_model extends CI_Model
 					'theme' => 'Maid_Saber',
 					'sidebar_bg' => $sidebar_bg,
 					'timestamp' => $waktu_saat_ini,
+					'photo' => 'no_photo.jpg',
+					
 			);
 			$this->db->insert('users',$data);
 
@@ -62,7 +64,7 @@ class User_model extends CI_Model
 		        'username' => $username,
 		        'email' => $email,
 		        'password' => 'reg.with.google',
-			    'subscription' => 1,
+			    'subscription' => 0,
 
 				// using default color and theme set
 				'navbar_skin' => 'navbar-dark',
@@ -73,6 +75,7 @@ class User_model extends CI_Model
 				'theme' => 'Maid_Saber',
 				'sidebar_bg' => $sidebar_bg,
 				'timestamp' => $waktu_saat_ini,
+					'photo' => 'no_photo.jpg',
 		);
 		$this->db->insert('users',$data);
 
@@ -154,26 +157,26 @@ class User_model extends CI_Model
 
 	public function editProfile()
 	{
-		if ( !empty($this->input->post('kota_asal')) ) {
-			$kota_asal =  $this->input->post('kota_asal', true);
-			$data1 = array(
+		// lebih dinamis algoritmmanya
+		$data1 = array(
 			        'kota_asal' => $kota_asal,
-			);
-			$user_id = $this->session->userdata('user_id');
+			        'photo' => $user_id.'.jpg?refresh='.$angka_acak,
+		);
+		$angka_acak = mt_rand(1, 1000000);
 
-			$this->db->where('user_id', $user_id);
-			$this->db->update('users', $data1);
+		$kota_asal =  $this->input->post('kota_asal', true);
+		$user_id = $this->session->userdata('user_id');
+
+		if ( !empty($this->input->post('kota_asal')) ) {
+			$data1['kota_asal'] =  $this->input->post('kota_asal');
 		}
 		if ( !empty($this->input->post('skills')) ) {
-			$skills =  $this->input->post('skills', true);
-			$data1 = array(
-			        'skills' => $skills,
-			);
-			$user_id = $this->session->userdata('user_id');
-
-			$this->db->where('user_id', $user_id);
-			$this->db->update('users', $data1);
+			$data1['skills'] =  $this->input->post('skills');
 		}
+		$data1['photo'] = $user_id.'.jpg?refresh='.$angka_acak;
+
+		$this->db->where('user_id', $user_id);
+		$this->db->update('users', $data1);
 
 	}
 
@@ -185,14 +188,27 @@ class User_model extends CI_Model
 			$theme = $user_preferences;
 			return $theme;
 		} else {
-			// if no session userdata, set color to default
-			$theme['navbar_skin'] = 'navbar-dark';
-			$theme['navbar_varian'] = 'navbar-navy';
-			$theme['brand_color'] = 'primary';
-			$theme['sidebar_color'] = 'sidebar-dark-primary';
-			$theme['accent_color'] = 'primary';
-			$theme['theme'] = 'Yato';
-			$theme['sidebar_bg'] = base_url('assets/img/theme/yato.jpg');
+			// if no session userdata, ambil theme yang default
+			$query = $this->db->get( 'fansub_preferences' );
+			$fansub_preferences = $query->result_array()[0];
+			$theme_name = $fansub_preferences['theme_default'];
+			// mengambil data warna dan gambar pakai nama theme default
+			$query = $this->db->get_where( 'themes_collection',['name' => $theme_name] );
+			$theme = $query->result_array()[0];
+			// var_dump($theme);
+			// die();
+			
+			#ini variabel lama udah sama dan perlu lagi, jadi tinggal dicomment aja
+			// $theme['navbar_skin'] = 'navbar-dark';
+			// $theme['navbar_varian'] = 'navbar-navy';
+			// $theme['brand_color'] = 'primary';
+			// $theme['sidebar_color'] = 'sidebar-dark-primary';
+			// $theme['accent_color'] = 'primary';
+
+
+			// ada kesalahan di dua variabel ini wkwkwkkk
+			$theme['theme'] = $theme['name'];
+			$theme['sidebar_bg'] = base_url('assets/img/theme/') . $theme['image'];
 			return $theme;
 		}
 		
@@ -331,6 +347,16 @@ class User_model extends CI_Model
 
 	public function getThemesCollection()
 	{
+		$query = $this->db->get( 'themes_collection' );
+		return $query->result_array();
+
+	}
+
+	public function getAllThemesCollection($select)
+	{
+		if (!empty($select)) {
+			$this->db->select($select);
+		}
 		$query = $this->db->get( 'themes_collection' );
 		return $query->result_array();
 

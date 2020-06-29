@@ -7,7 +7,7 @@
               <form action="<?= base_url() ?>client/advanced_search/1.asp" method="get"  class="col-12 row margin">
 	              <div class="col-sm-4 callout callout-danger">
 	              	<div class="form-group">
-	              		<input id="nama_anime" type="text" name="nama_anime" class="form-control col-12" placeholder="Nama anime..." value="<?= $nama_anime; ?>" autofocus="on">
+	              		<input id="nama_anime" type="text" name="nama_anime" class="form-control col-12" placeholder="Judul ..." value="<?= $nama_anime; ?>" autofocus="on">
 	              	</div>
 	                
 	              </div>
@@ -91,7 +91,7 @@
               </form>
           	</div>
           	<p class="text-secondary">
-          		Result: <?= $total_anime; ?> anime
+          		Ditemukan <?= $total_anime; ?> cocok
           	</p>
           </div>
           <!-- /.col -->
