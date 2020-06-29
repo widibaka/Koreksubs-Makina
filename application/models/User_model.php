@@ -188,14 +188,27 @@ class User_model extends CI_Model
 			$theme = $user_preferences;
 			return $theme;
 		} else {
-			// if no session userdata, set color to default
-			$theme['navbar_skin'] = 'navbar-dark';
-			$theme['navbar_varian'] = 'navbar-navy';
-			$theme['brand_color'] = 'primary';
-			$theme['sidebar_color'] = 'sidebar-dark-primary';
-			$theme['accent_color'] = 'primary';
-			$theme['theme'] = 'Yato';
-			$theme['sidebar_bg'] = base_url('assets/img/theme/yato.jpg');
+			// if no session userdata, ambil theme yang default
+			$query = $this->db->get( 'fansub_preferences' );
+			$fansub_preferences = $query->result_array()[0];
+			$theme_name = $fansub_preferences['theme_default'];
+			// mengambil data warna dan gambar pakai nama theme default
+			$query = $this->db->get_where( 'themes_collection',['name' => $theme_name] );
+			$theme = $query->result_array()[0];
+			// var_dump($theme);
+			// die();
+			
+			#ini variabel lama udah sama dan perlu lagi, jadi tinggal dicomment aja
+			// $theme['navbar_skin'] = 'navbar-dark';
+			// $theme['navbar_varian'] = 'navbar-navy';
+			// $theme['brand_color'] = 'primary';
+			// $theme['sidebar_color'] = 'sidebar-dark-primary';
+			// $theme['accent_color'] = 'primary';
+
+
+			// ada kesalahan di dua variabel ini wkwkwkkk
+			$theme['theme'] = $theme['name'];
+			$theme['sidebar_bg'] = base_url('assets/img/theme/') . $theme['image'];
 			return $theme;
 		}
 		
@@ -332,8 +345,11 @@ class User_model extends CI_Model
 
 	}
 
-	public function getThemesCollection()
+	public function getThemesCollection($select)
 	{
+		if (!empty($select)) {
+			$this->db->select($select);
+		}
 		$query = $this->db->get( 'themes_collection' );
 		return $query->result_array();
 

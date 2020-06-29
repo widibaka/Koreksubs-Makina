@@ -275,6 +275,7 @@ class Admin_model extends CI_Model
 			        'rows_perpage_tile' => $this->input->post('rows_perpage_tile', true),
 			        'rows_perpage_list' => $this->input->post('rows_perpage_list', true),
 			        'about_text' => $this->input->post('about_text', true),
+			        'theme_default' => $this->input->post('theme_default', true),
 			);
 			$this->db->where('id', 1);
 			$this->db->update('fansub_preferences', $data1);

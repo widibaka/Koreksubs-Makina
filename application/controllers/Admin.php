@@ -420,6 +420,7 @@ class Admin extends CI_Controller {
  		
 		$this->Admin_model->ubahFansubPreferences();
 
+		$data['themes_collection'] = $this->User_model->getThemesCollection('name'); // lihat di User_model utk lebih jelasnya
 		
 		$data['page'] 		= "website_preferences";
 		$data['page_title'] = "Website Preferences";
