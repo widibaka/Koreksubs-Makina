@@ -58,7 +58,7 @@ class Admin_model extends CI_Model
 			$data = array(
 			        'anime_parent_id' => $anime_parent_id,
 			        'file_name' => $file_name,
-			        'links' => $links,
+			        'links' => substr($links, 0,-1), // ada karakter pengganggu @ di bagian buntut. harus dihilangkan
 			        'website' => $website,
 			        'link_status' => "0,0",
 			        'timestamp' => $waktu_saat_ini,
@@ -73,7 +73,7 @@ class Admin_model extends CI_Model
 			$waktu_saat_ini = date("Y-m-d H:i:s");
 			$data = array(
 			        'file_name' => $file_name,
-			        'links' => $links,
+			        'links' => substr($links, 0, -1),
 			        'website' => $website,
 			        'timestamp' => $waktu_saat_ini,
 			);

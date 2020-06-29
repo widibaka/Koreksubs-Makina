@@ -345,7 +345,14 @@ class User_model extends CI_Model
 
 	}
 
-	public function getThemesCollection($select)
+	public function getThemesCollection()
+	{
+		$query = $this->db->get( 'themes_collection' );
+		return $query->result_array();
+
+	}
+
+	public function getAllThemesCollection($select)
 	{
 		if (!empty($select)) {
 			$this->db->select($select);

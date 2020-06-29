@@ -1,4 +1,10 @@
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `anime`
+--
+
 CREATE TABLE `anime` (
   `anime_parent_id` int(11) NOT NULL,
   `title` text NOT NULL,
@@ -20,6 +26,13 @@ CREATE TABLE `anime` (
   `progress` int(10) NOT NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `anime`
+--
+
+INSERT INTO `anime` (`anime_parent_id`, `title`, `poster_url_medium`, `poster_url_small`, `full_episode`, `categories`, `season`, `year`, `sinopsis`, `credits`, `rating`, `trailer`, `ket`, `author`, `download_count`, `view_count`, `kitsu_info`, `progress`, `timestamp`) VALUES
+(140, 'Saenai Heroine no Sodatekata Fine (Saekano: How to Raise a Boring Girlfriend Fine)', 'https://media.kitsu.io/anime/poster_images/14050/medium.jpg?1545654005', 'https://media.kitsu.io/anime/poster_images/14050/small.jpg?1545654005', 1, 'Comedy, Ecchi, Harem, School Life', 'Fall', '2019', '<p>g</p>', '<p>g</p><p>h</p>', '80.66', '', 'k', 'admin', 0, 0, 'https://kitsu.io/14050', 0, '2020-06-30 00:08:07');
 
 -- --------------------------------------------------------
 
@@ -51,6 +64,13 @@ CREATE TABLE `episodes` (
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `episodes`
+--
+
+INSERT INTO `episodes` (`anime_child_id`, `anime_parent_id`, `file_name`, `links`, `website`, `link_status`, `timestamp`) VALUES
+(18, 140, 'Great Pretender - 01.mkv', 'https://drive.google.com/file/d/1LLbLfGSwHqerooydGJa29OoIDmVzYo3f/view@Google Drive@https://drive.google.com/file/d/1LLbLfGSwHqerooydGJa29OoIDmVzYo3f/view@Google Drive', '', '2,admin', '2020-06-30 00:08:57');
+
 -- --------------------------------------------------------
 
 --
@@ -65,15 +85,16 @@ CREATE TABLE `fansub_preferences` (
   `about_text` text NOT NULL,
   `custom_menu_name` varchar(100) NOT NULL,
   `status_custom_menu` int(1) NOT NULL,
-  `link_custom_menu` text NOT NULL
+  `link_custom_menu` text NOT NULL,
+  `theme_default` varchar(55) NOT NULL DEFAULT ''''''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `fansub_preferences`
 --
 
-INSERT INTO `fansub_preferences` (`id`, `fansub_name`, `rows_perpage_tile`, `rows_perpage_list`, `about_text`, `custom_menu_name`, `status_custom_menu`, `link_custom_menu`) VALUES
-(1, 'Koreksubs Makina', 9, 15, 'Masukkan Deskripsi <br>Di sini.', '[Custom Menu]', 1, 'ubah_custom_menu@http://google.com@ubah_custom_menu@http://google.com');
+INSERT INTO `fansub_preferences` (`id`, `fansub_name`, `rows_perpage_tile`, `rows_perpage_list`, `about_text`, `custom_menu_name`, `status_custom_menu`, `link_custom_menu`, `theme_default`) VALUES
+(1, 'Koreksubs Makina', 9, 15, 'Masukkan Deskripsi <br>Di sini.', '[Custom Menu]', 1, 'ubah_custom_menu@http://google.com@ubah_custom_menu@http://google.com', 'Tomoe');
 
 -- --------------------------------------------------------
 
@@ -88,6 +109,17 @@ CREATE TABLE `pesan` (
   `text` text NOT NULL,
   `timestamp` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pesan`
+--
+
+INSERT INTO `pesan` (`id`, `from`, `to`, `text`, `timestamp`) VALUES
+(1, 'admin', 'WIDI DWI NURCAHYO', '<p>Halo WIDI DWI NURCAHYO! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>', '2020-06-29 02:41:51'),
+(2, 'admin', 'widi udb', '<p>Halo widi udb! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>', '2020-06-29 03:45:06'),
+(3, 'admin', 'widi udb', '<p>Halo widi udb! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>', '2020-06-29 04:21:30'),
+(4, 'admin', 'widi baka', '<p>Halo widi baka! Aku admin!</p>Selamat datang di <u>Koreksubs Makina</u>!<br>Kamu bisa mengganti tema akun kamu ini dengan cara membuka menu <b>settings </b>--&gt; <b>customization</b> --&gt; lalu pilih theme yang kamu suka. Lalu kamu pun bebas untuk mengubah warna dan background sidebar akun kamu sesuai yang kamu mau.<p xss=removed>Jangan sungkan untuk menghubungi admin untuk sekedar ngasih tahu atau memberi masukan.</p>', '2020-06-29 04:52:09');
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +134,12 @@ CREATE TABLE `stat` (
   `view_count` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `stat`
+--
+
+INSERT INTO `stat` (`id`, `bulan`, `tahun`, `download_count`, `view_count`) VALUES
+(1, 'June', 2020, 0, 20);
 
 -- --------------------------------------------------------
 
@@ -114,6 +152,12 @@ CREATE TABLE `stat_num` (
   `download` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `stat_num`
+--
+
+INSERT INTO `stat_num` (`view`, `download`) VALUES
+(20, 5);
 
 -- --------------------------------------------------------
 
@@ -251,7 +295,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anime`
 --
 ALTER TABLE `anime`
-  MODIFY `anime_parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=139;
+  MODIFY `anime_parent_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -263,7 +307,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `episodes`
 --
 ALTER TABLE `episodes`
-  MODIFY `anime_child_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `anime_child_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `fansub_preferences`
