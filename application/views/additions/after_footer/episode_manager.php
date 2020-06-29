@@ -30,7 +30,7 @@
       for (let id_now = 0; id_now < jumlah_link; id_now++) {
         // console.log(0)
         let id_plus_satu = id_now++;
-        let to_be_append = '<input type="text" class="form-control col-md-8 mt-1 link_in_modal" placeholder="Link '+id_plus_satu+'..." id="inputan'+id_plus_satu+'" ><input type="text" class="form-control col-md-4 mt-1 nama_link" id="inputan'+id_now+'" placeholder="Nama link '+id_now+'...">';
+        let to_be_append = '<input type="text" class="form-control col-md-8 mt-1 link_in_modal" placeholder="Link '+id_plus_satu+'..." id="inputan'+id_plus_satu+'" ><input type="text" class="form-control col-md-4 mt-1" id="inputan'+id_now+'" placeholder="Nama link '+id_now+'...">';
         $('#links_in_modal').append(to_be_append);
       }
 
