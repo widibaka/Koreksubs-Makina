@@ -40,7 +40,14 @@
                       <div class="card-body">
                         <div class="form-group">
                           <label for="">Link Downloads</label>
-                          <br><small class="text-muted text-sm"><i>Anda dapat dengan mudah menambah episode hanya dengan memasukkan link tanpa harus mengetik nama link dan nama file.</i></small>
+                          <br>
+                                      <div class="icheck-primary">
+                                        <input type="checkbox" id="check_box_otomatisfilename" >
+                                        <label style="font-weight: normal;">
+                                         Otomatis dapatkan nama link dan nama file dari link 
+                                        </label>
+                                      </div>
+                          <small class="text-muted text-sm"><i>Mohon cantumkan http:// atau https:// di depan URL</i></small>
                        <!--    <br><small class="text-muted text-sm"><i>Anda dapat menyimpan link dengan cara input</i> <font color="red">"http://url_download@nama_url"</font><i> dengan '@' sebagai pemisah.</i></small>
                           <br><small class="text-muted text-sm"><i>Atau multiple link dengan cara input</i> <font color="red">"http://url_download1@nama_url1@http://url_download2@nama_url2"</font>.</small>
                           <br><small class="text-muted text-sm"><i>Contoh.</i> <font color="red">"http://google.com/url_download@GoogleDrive@http://mega.nz/url_download@Mega"</font>.</small> -->
@@ -64,8 +71,9 @@
                           <input type="hidden" class="form-control" value="<?= $anime['anime_parent_id'] ?>" name="anime_parent_id">
                           <input type="text" class="form-control" id="file_name1" placeholder="Place file name here..." name="file_name" required>
                         </div>
-                        <div class="form-group"> 
-                          <label for="">Sumber Website</label>
+                        <div class="form-group">
+                          <label for="">Sumber Website</label><br>
+                          <small class="text-muted text-sm"><i>Mohon cantumkan http:// atau https:// di depan URL</i></small>
                           <input type="text" class="form-control" id="" placeholder="And website source is here..." name="website">
                        </div>
                       </div>
@@ -262,7 +270,7 @@
               <div class="form-group">
                 <label for="">File name</label>
                 <input type="hidden" value="<?= $anime['anime_parent_id'] ?>" name="anime_parent_id">
-                <input type="text" class="form-control" id="" placeholder="Place file name here..." name="file_name" value="<?= $eps['file_name']; ?>" id="file_name" required>
+                <input type="text" class="form-control" placeholder="Place file name here..." name="file_name" value="" id="file_name" required>
               </div>
               <div class="form-group">
                 <label for="">Link Downloads</label>
@@ -273,7 +281,7 @@
               </div>
               <div class="form-group"> 
                 <label for="">Sumber Website</label>
-                <input type="text" class="form-control" id="" placeholder="And website source is here..." name="website" value="<?= $eps['website']; ?>">
+                <input type="text" class="form-control" id="website" placeholder="And website source is here..." name="website" value="">
              </div>
             </div>
 
