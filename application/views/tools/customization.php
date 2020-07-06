@@ -35,7 +35,7 @@
                  <input type="hidden" class="form-control" name="input_theme_accent_color" value="<?= $theme['accent_color'] ?>" id="input_theme_accent_color">
                  <button type="submit" name="apply_theme" class="btn mt-2 bg-<?= $theme['accent_color'] ?>" value="yes">Apply Theme</button>
                  <?php if (!empty($this->session->userdata('admin_super'))): ?>
-                 <button type="submit" name="save_theme" class="btn mt-2 bg-<?= $theme['accent_color'] ?>" value="yes">Save Current State to Theme</button>                   
+                 <br><i>This button below is for Admin Super only:<br> </i><button type="submit" name="save_theme" class="btn mt-2 bg-danger" value="yes"> Set Current State to Default Theme of <?= $theme['theme'] ?></button>                   
                  <?php endif ?>
                </form>
               </div>

@@ -23,7 +23,8 @@
       let data = JSON.parse(data_mentah);
       // console.log(data.converted_links);
       $('#anime_child_id').val(data.anime_child_id);
-      $('#anime_child_id').val(data.anime_child_id);
+      $('#file_name').val(data.file_name);
+      $('#website').val(data.website);
 
 // alert(data.converted_links.length)
       let jumlah_link = data.converted_links.length; // mengetahui jumlah inputan yang sudah ada
@@ -273,36 +274,57 @@
       return(encodedString);
     }
     function getMetaOfLink(nomor){
-      if (nomor == 1) { // jika dan hanya jika yang diisi adalah yang input pertama
-        $('#file_name'+nomor).addClass('bg-lime');
-        $('#file_name'+nomor).val("Loading ...");
-      }
-      $('#nama_link'+nomor).val("Loading ...");
-      $('#nama_link'+nomor).addClass('bg-lime');
-      var link = $('#link'+nomor).val();
-      var encodedLink = encodeBase64(link);
-      var url = "<?php echo base_url('getlinkmetadata/index/') ?>"+encodedLink;
-      // console.log(url)
-      
-      $.get(url, function(data_mentah, status){
-        var data = JSON.parse(data_mentah); // ternyata json harus diparse dulu, hehe. gak bisa langsung diakses
-          // console.log(data.og_title);
-          
-          if (data.og_title && $('#file_name'+nomor)) {
-            $('#file_name'+nomor).val(data.og_title);
-          }else{
-            $('#file_name'+nomor).val(data.page_title);
-          }
-          if (data.og_site_name) {
-            $('#nama_link'+nomor).val(data.og_site_name);
-          }else{
-            $('#nama_link'+nomor).attr("placeholder", "No data. Isi manual dong ...");
-            $('#nama_link'+nomor).val("");
-          }
-          $('#file_name'+nomor).removeClass('bg-lime');
-          $('#nama_link'+nomor).removeClass('bg-lime');
+      var checkBox = document.getElementById("check_box_otomatisfilename"); // hanya jalan kalau checkbox aktif
+      var n = $('#link'+nomor).val().search('http'); // hanya jalankan kalo ada http
+      // alert(n)
+      if (checkBox.checked == true && $('#link'+nomor).val().length > 8 && n > -1) {
+        window.stop();
+        if (nomor == 1) { // jika dan hanya jika yang diisi adalah yang input pertama
+          $('#file_name'+nomor).addClass('bg-lime');
+          $('#file_name'+nomor).val("Loading ...");
+        }
+        $('#nama_link'+nomor).val("Loading ...");
+        $('#nama_link'+nomor).addClass('bg-lime');
+        var link = $('#link'+nomor).val();
+        var encodedLink = encodeBase64(link);
+        var url = "<?php echo base_url('getlinkmetadata/index/') ?>"+encodedLink;
+        // console.log(url)
+        
+        var request = $.get(url, function(data_mentah, status){
+          var data = JSON.parse(data_mentah); // ternyata json harus diparse dulu, hehe. gak bisa langsung diakses
+            // console.log(data.og_title);
+            
+            if (data.og_title && $('#file_name'+nomor)) {
+              $('#file_name'+nomor).val(data.og_title);
+            }else{
+              $('#file_name'+nomor).val(data.page_title);
+            }
+            if (data.og_site_name) {
+              $('#nama_link'+nomor).val(data.og_site_name);
+            }else{
+              $('#nama_link'+nomor).attr("placeholder", "No data. Isi manual dong ...");
+              $('#nama_link'+nomor).val("");
+            }
+            $('#file_name'+nomor).removeClass('bg-lime');
+            $('#nama_link'+nomor).removeClass('bg-lime');
 
-      });
+        });
+
+        request.success(function(result) {
+          console.log(result);
+        });
+
+        request.error(function(jqXHR, textStatus, errorThrown) {
+          if (textStatus == 'timeout')
+            console.log('The server is not responding');
+
+          if (textStatus == 'error')
+            console.log(errorThrown);
+
+          // Etc
+        });
+      }
+      
     }
     function tambah_link(){
       let jumlah = $('.nama_link').length; // mengetahui jumlah inputan yang sudah ada
