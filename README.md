@@ -8,6 +8,34 @@ Aplikasi Web CMS untuk fansub dan fanshare anime.
 Koreksubs Makina adalah sebuah anime management system berbasis web yang dibuat memakai Framework pemrograman PHP bernama CodeIgniter 3.1.
 Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai hobi dengan membuat website fansub anime tanpa harus risau tentang cara membangun sistem website untuk fansub.
 ************
+
+# Rencana Mendatang
+- list anime favorit untuk user
+- theme creator
+- form ubah pesan selamat datang
+- form ubah nama user
+- form pengaturan OAuth Google 
+- form pengaturan SMTP email
+- Mengubah saran file-name di add episode jadi lbh bagus
+- BASE URL MAKINA SETTING MANUAL AJA PAS INSTALASI
+- pengaturan label admin di komentar
+- Struktur sidebar back-end yang baru
+- Membuat dokumentasi untuk mempermudah pengguna
+- Membuat video tutorial di youtube, dari instalasi sampai penggunaan
+# Fitur baru yang sudah beres
+- Custom release
+# Dibangun Menggunakan
+* [CodeIgniter 3.1](http://codeigniter.com/) - Web Framework yang digunakan
+* [AdminLTE3 Template](https://adminlte.io/themes/AdminLTE) - Template tampilan yang digunakan
+************
+# Fitur Dasar
+- Instalasi mudah dan bersih, tanpa perlu ngoding
+- Bisa menambah, menghapus, mengubah koleksi anime (sudah pasti dong)
+- Menggunakan Kitsu API
+- Mengatasi laporan link rusak dengan cepat dan mudah
+- User level
+- Banyak lagi
+************
 # Requirements
 - Server Apache
 - Minimal PHP ver.7.2 (Belum dicoba di ver. 5, jadi silakan kalau mau coba)
@@ -27,30 +55,12 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - (atau diubah dari phpMyAdmin atau yang lainnya)
 - (akun ini tidak berlaku di Demo)
 ************
-# Fitur
-- Instalasi mudah dan bersih, tanpa perlu ngoding
-- Bisa menambah, menghapus, mengubah koleksi anime (sudah pasti dong)
-- Menggunakan Kitsu API
-- Mengatasi laporan link rusak dengan cepat dan mudah
-- Notifikasi user melalui e-mail
-- User level
-- Banyak lagi
-# Dibangun Menggunakan
-* [CodeIgniter 3.1](http://codeigniter.com/) - Web Framework yang digunakan
-* [AdminLTE3 Template](https://adminlte.io/themes/AdminLTE) - Template tampilan yang digunakan
-************
 # Disclaimer
 - Saya membuat ini sebagai bahan edukasi loh ya
 ************
 # Contributing & Contact
 - Silakan hubungi WA 6281226203761 untuk ngobrol dgn saya :)
-************
-# Rencana Mendatang
-- Fitur baru custom release
-- Struktur sidebar back-end yang baru
-- Membuat dokumentasi untuk mempermudah pengguna
-- Membuat video tutorial di youtube, dari instalasi sampai penggunaan
-- Notifikasi lewat e-mail masih ada bug, tapi belum diperbaiki
+
 ************
 # Sumber
 -  Info <https://github.com/widibaka/Koreksubs-Makina>
