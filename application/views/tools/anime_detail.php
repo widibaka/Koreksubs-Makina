@@ -72,8 +72,8 @@
                 <div class="col-12">
                     <div class="post">
                       <!-- Sinopsis -->
-                      <p>
-                        <strong>Sinopsis</strong> <br>
+                      <p style="margin-top: 0px; margin-bottom: 0px;">
+                        <strong>Detail / Sinopsis</strong> <br>
                         <?= $anime['sinopsis']; ?>
                       </p>
                     </div>
@@ -114,7 +114,7 @@
                                   echo ' <span class="right badge badge-danger" id="message_notification">admin</span>';
                                 }
                                 elseif ( $user_detail['admin'] == 2) {
-                                  echo ' <span class="right badge badge-danger" id="message_notification">adminnya admin</span>';
+                                  echo ' <span class="right badge badge-danger" id="message_notification">admin super</span>';
                                 }
                                 ?></a>
                               </span>
@@ -307,7 +307,7 @@
                 <p class="text-sm"><b>Musim
                   </b><span class="d-block"><?= $anime['season']; ?> <?= $anime['year']; ?></span>
                 </p>
-                <p class="text-sm"><b>Credits
+                <p class="text-sm" style="margin-top: 0px; margin-bottom: 0px;"><b>Credits
                   </b><span class="d-block"><?= $anime['credits']; ?></span>
                 </p>
                 <p class="text-sm"><b>Keterangan

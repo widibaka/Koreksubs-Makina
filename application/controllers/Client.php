@@ -378,7 +378,7 @@ class Client extends CI_Controller {
  		$data['userdata'] = $this->User_model->getUserDataById($user_id)[0];
          
 		$data['page'] 		= "profile";        
-		$data['page_title'] = "Profile Editting";
+		$data['page_title'] = "Profile Editing";
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar', $data);
 		$this->load->view('templates/sidebar', $data);
