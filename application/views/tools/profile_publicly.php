@@ -8,7 +8,6 @@
                 <div class="text-center">
                   <div class="img-circle img-bordered mr-auto ml-auto" style="background: url('<?= base_url(); ?>assets/img/<?php 
                   $user_id = $this->session->userdata("user_id");
-                  $userdata = $this->User_model->getUserDataById( $user_id )[0];
                   echo $userdata['photo'];
                 ?>') center; width: 180px; height: 180px; background-size: cover;">
                   </div>
