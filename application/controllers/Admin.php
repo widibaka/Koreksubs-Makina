@@ -163,18 +163,22 @@ class Admin extends CI_Controller {
 			$file_name = $this->input->post('file_name',true); 
 			$links = $this->input->post('links',true);
 			$website = $this->input->post('website',true);
-
+			#Maaf, fitur masih dalam pengembangan
 			$this->Admin_model->addEpisode( $anime_parent_id, $file_name, $links, $website );
 			// Send notification email
 			$current_eps = $data['anime']['progress'] + 1;
-			$this->Admin_model->sendEmailSubscription_episode( $data['anime']['title'], $current_eps );
+			// $this->Admin_model->sendEmailSubscription_episode( $data['anime']['title'], $current_eps );
+			#Maaf, fitur masih dalam pengembangan
+			
 		}
 		// Untuk multiple episode
 		if ( $this->input->post('is_multiple_episode') == 'yes' ) {
 			// Add multiple_episodes
 			$this->Admin_model->addMultipleEpisode( $this->input->post('multiple_episodes') );// Data hasil submit multiple episode akan ditampung di sini
 			// Send notification email
-			$this->Admin_model->sendEmailSubscription_episode( $data['anime']['title'], 'beberapa' );
+			#Maaf, fitur masih dalam pengembangan
+			// $this->Admin_model->sendEmailSubscription_episode( $data['anime']['title'], 'beberapa' );
+			#Maaf, fitur masih dalam pengembangan
 		}
 		// Untuk edit episode
 		if ( $this->input->post('is_edit_episode') == 'yes' ) {
@@ -266,7 +270,9 @@ class Admin extends CI_Controller {
 		$this->Admin_model->addAnimeSeries();// Data hasil submit akan ditampung di sini
 
 		if ( !empty($this->input->post('title')) ) { // Send an email pemberitahuan
-			$this->Admin_model->sendEmailSubscription_series( $this->input->post('title') );
+			
+			#Maaf, fitur masih dalam pengembangan
+			// $this->Admin_model->sendEmailSubscription_series( $this->input->post('title') );
 		}
 		
 		$data['theme'] = $this->User_model->getTheme();

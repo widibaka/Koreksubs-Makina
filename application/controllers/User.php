@@ -246,6 +246,12 @@ class User extends CI_Controller
  		$data['fansub_preferences'] = $this->Client_model->getFansubPreferences();
 		$data['page'] = "forgot_password";
 		$data['page_title'] = 'Lupa Password';
+		
+		#Maaf, fitur masih dalam pengembangan
+			echo '<script>alert("Maaf, fitur ini masih dalam pengembangan.")</script>';
+			redirect('user/login');
+		#Maaf, fitur masih dalam pengembangan
+		
 
  		$this->load->helper(array('form'));
 

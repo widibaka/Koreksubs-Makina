@@ -10,14 +10,18 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 ************
 
 # Rencana Mendatang
+- Routes: custom error page
+- Genre/Category list
+- mencari metode update yang mantul
+- BASE URL MAKINA SETTING MANUAL AJA PAS INSTALASI
+- form pengaturan SMTP email
 - list anime favorit untuk user
 - theme creator
 - form ubah pesan selamat datang
 - form ubah nama user
+- ubah struktur after footer
 - form pengaturan OAuth Google 
-- form pengaturan SMTP email
 - Mengubah saran file-name di add episode jadi lbh bagus
-- BASE URL MAKINA SETTING MANUAL AJA PAS INSTALASI
 - pengaturan label admin di komentar
 - Struktur sidebar back-end yang baru
 - Membuat dokumentasi untuk mempermudah pengguna

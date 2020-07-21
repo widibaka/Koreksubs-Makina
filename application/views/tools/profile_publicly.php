@@ -8,7 +8,6 @@
                 <div class="text-center">
                   <div class="img-circle img-bordered mr-auto ml-auto" style="background: url('<?= base_url(); ?>assets/img/<?php 
                   $user_id = $this->session->userdata("user_id");
-                  $userdata = $this->User_model->getUserDataById( $user_id )[0];
                   echo $userdata['photo'];
                 ?>') center; width: 180px; height: 180px; background-size: cover;">
                   </div>
@@ -170,15 +169,3 @@
           </div>
           <!-- /.col -->
         </div>
-<script type="text/javascript">
-  $(document).ready(function(){
-$('#konfirmasi_hapus_akun').hide()
-      $('#hapus_akun').on('click',function(){
-        $('#konfirmasi_hapus_akun').show('slow')
-      })
-      $('#tidak_jadi_hapus').on('click',function(){
-        $('#konfirmasi_hapus_akun').hide('slow')
-      })
-
-  })
-</script>
