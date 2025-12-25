@@ -63,7 +63,7 @@ Tujuan saya adalah untuk menyediakan software web bagi fansub yang ingin memulai
 - Saya membuat ini sebagai bahan edukasi loh ya
 ************
 # Contributing & Contact
-- Silakan hubungi WA 6281226203761 untuk ngobrol dgn saya :)
+- Silakan hubungi IG @widi_baka untuk ngobrol dgn saya :) Tapi slow respon ya wkwk
 
 ************
 # Sumber
